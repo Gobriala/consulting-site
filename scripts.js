@@ -1,4 +1,5 @@
 
+console.log("scripts.js loaded ✅");
 document.addEventListener('DOMContentLoaded', function() {
   const navToggle = document.getElementById('nav-toggle');
   const primaryMenu = document.getElementById('primary-menu');
@@ -53,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
  form.addEventListener("submit", async function (e) {
   e.preventDefault();
+  console.log("submit handler fired ✅");
   e.stopImmediatePropagation();
 
   const btn = document.getElementById("submitBtn");
