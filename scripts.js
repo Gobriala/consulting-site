@@ -48,12 +48,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Contact form submission (Formspree + custom redirect)
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("#contact-form"); // or ".contact-form"
+  const form = document.querySelector(".contact-form");
   if (!form) return;
 
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
     e.stopImmediatePropagation();
+
     console.log("submit handler fired ✅");
 
     const btn = document.getElementById("submitBtn");
@@ -62,22 +63,26 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.textContent = "Sending...";
     }
 
+    const data = new FormData(form);
+
     try {
       const response = await fetch(form.action, {
         method: form.method,
-        body: new FormData(form),
+        body: data,
         headers: { Accept: "application/json" }
       });
 
       if (response.ok) {
         window.location.href = "/thank-you.html";
-        return;
+      } else {
+        alert("Oops! Something went wrong. Please try again.");
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = "Send message";
+        }
       }
-
-      alert("Oops! Something went wrong. Please try again.");
-    } catch (err) {
+    } catch (error) {
       alert("Network error. Please try again later.");
-    } finally {
       if (btn) {
         btn.disabled = false;
         btn.textContent = "Send message";
