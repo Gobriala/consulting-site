@@ -54,6 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
     e.stopImmediatePropagation();
+    
+    const btn = document.getElementById("submitBtn");
+btn.disabled = true;
+btn.textContent = "Sending...";
 
     const data = new FormData(form);
 
@@ -68,9 +72,13 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "/thank-you.html";
       } else {
         alert("Oops! Something went wrong. Please try again.");
+      btn.disabled = false;
+      btn.textContent = "Send message";      
       }
     } catch (error) {
       alert("Network error. Please try again later.");
+      btn.disabled = false;
+      btn.textContent = "Send message";
     }
   });
 });
