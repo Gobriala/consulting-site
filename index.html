@@ -110,8 +110,9 @@
       method="POST"
       id="contact-form">
 
+  <input type="hidden" name="_next" value="https://anthonygobrial.com/thank-you.html">
   <input type="hidden" name="_subject" value="New message from anthonygobrial.com">
-  <input type="hidden" name="_captcha" value="true">    
+  <input type="hidden" name="_captcha" value="true">
 
       <div class="form-row">
         <label for="name">Name</label>
@@ -128,9 +129,7 @@
         <textarea id="message" name="message" rows="6" required></textarea>
       </div>
 
-      <!-- Optional: helpful metadata -->
-      <input type="hidden" name="_subject" value="New message from consulting-site" />
-      
+      <!-- Optional: helpful metadata -->  
       <!-- Spam reduction: honeypot (bots fill this; humans won't) -->
       <div class="hp-field" aria-hidden="true">
         <label for="company">Company</label>
