@@ -78,9 +78,10 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.disabled = false;
       btn.textContent = "Send message";
     }
-  } catch (error) {
+    } catch (error) {
     alert("Network error. Please try again later.");
     btn.disabled = false;
     btn.textContent = "Send message";
   }
+  });
 });
