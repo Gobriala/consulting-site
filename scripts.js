@@ -48,40 +48,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Contact form submission (Formspree + custom redirect)
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("contact-form");
-
+  const form = document.querySelector("#contact-form"); // or ".contact-form"
   if (!form) return;
 
- form.addEventListener("submit", async function (e) {
-  e.preventDefault();
-  console.log("submit handler fired ✅");
-  e.stopImmediatePropagation();
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    console.log("submit handler fired ✅");
 
-  const btn = document.getElementById("submitBtn");
-  if (btn) {
-  btn.disabled = true;
-  btn.textContent = "Sending...";
-
-  const data = new FormData(form);
-
-  try {
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: data,
-      headers: { Accept: "application/json" }
-    });
-
-    if (response.ok) {
-      window.location.href = "/thank-you.html";
-    } else {
-      alert("Oops! Something went wrong. Please try again.");
-      btn.disabled = false;
-      btn.textContent = "Send message";
+    const btn = document.getElementById("submitBtn");
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = "Sending...";
     }
-    } catch (error) {
-    alert("Network error. Please try again later.");
-    btn.disabled = false;
-    btn.textContent = "Send message";
-  }
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        window.location.href = "/thank-you.html";
+        return;
+      }
+
+      alert("Oops! Something went wrong. Please try again.");
+    } catch (err) {
+      alert("Network error. Please try again later.");
+    } finally {
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = "Send message";
+      }
+    }
   });
 });
