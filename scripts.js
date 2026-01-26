@@ -51,34 +51,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!form) return;
 
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    
-    const btn = document.getElementById("submitBtn");
-btn.disabled = true;
-btn.textContent = "Sending...";
+ form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+  e.stopImmediatePropagation();
 
-    const data = new FormData(form);
+  const btn = document.getElementById("submitBtn");
+  btn.disabled = true;
+  btn.textContent = "Sending...";
 
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { Accept: "application/json" }
-      });
+  const data = new FormData(form);
 
-      if (response.ok) {
-        window.location.href = "/thank-you.html";
-      } else {
-        alert("Oops! Something went wrong. Please try again.");
-      btn.disabled = false;
-      btn.textContent = "Send message";      
-      }
-    } catch (error) {
-      alert("Network error. Please try again later.");
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { Accept: "application/json" }
+    });
+
+    if (response.ok) {
+      window.location.href = "/thank-you.html";
+    } else {
+      alert("Oops! Something went wrong. Please try again.");
       btn.disabled = false;
       btn.textContent = "Send message";
     }
-  });
+  } catch (error) {
+    alert("Network error. Please try again later.");
+    btn.disabled = false;
+    btn.textContent = "Send message";
+  }
 });
