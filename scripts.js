@@ -44,3 +44,30 @@ document.addEventListener('DOMContentLoaded', function() {
   modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal(); });
 });
+
+// Contact form submission (Formspree + custom redirect)
+const form = document.querySelector(".contact-form");
+
+if (form) {
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        window.location.href = "/thank-you.html";
+      } else {
+        alert("Oops! Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      alert("Network error. Please try again later.");
+    }
+  });
+}
