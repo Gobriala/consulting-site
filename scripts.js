@@ -46,11 +46,14 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Contact form submission (Formspree + custom redirect)
-const form = document.querySelector(".contact-form");
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector(".contact-form");
 
-if (form) {
+  if (!form) return;
+
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
+    e.stopImmediatePropagation();
 
     const data = new FormData(form);
 
@@ -70,4 +73,4 @@ if (form) {
       alert("Network error. Please try again later.");
     }
   });
-}
+});
