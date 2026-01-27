@@ -235,82 +235,75 @@ body.is-leaving {  opacity: 0;}
 /* Thank you page fade IN */
 body.is-entering {  opacity: 0;}
 body.is-entering.is-visible { opacity: 1; }
+
 /* =========================
    Coming Soon page (video bg)
-   Matches coming-soon.html
+   Uses your HTML structure:
+   .coming-soon-page > .coming-soon-hero > video + .coming-soon-overlay > .coming-soon-wrap
 ========================= */
 
-.coming-soon-page {
+.coming-soon-page{
   margin: 0;
-  background: #000; /* fallback while video loads */
+  background: #050b16; /* fallback while video loads */
   color: #fff;
 }
 
-/* Fullscreen hero container */
-.coming-soon-hero {
+.coming-soon-hero{
   position: relative;
   min-height: 100vh;
   overflow: hidden;
 }
 
 /* Background video */
-.coming-soon-hero > video {
+.coming-soon-hero > video{
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.6) contrast(1.1);
+
+  /* LESS dark than before */
+  filter: brightness(0.80) contrast(1.05);
   z-index: 0;
+
+  /* prevents “poster flash then video pops” */
+  opacity: 0;
+  transition: opacity 260ms ease;
 }
 
-/* Overlay */
-.coming-soon-overlay {
-  position: relative;
+/* Single overlay layer (keep this light) */
+.coming-soon-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
   z-index: 1;
+  pointer-events:none;
+
+  /* LESS dark than before */
+  background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.45));
+}
+
+/* Content on top */
+.coming-soon-overlay{
+  position: relative;
+  z-index: 2;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
   padding: 2rem;
 }
 
-/* Optional extra dark overlay layer for readability */
-.coming-soon-overlay::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.70));
-  z-index: -1;
+/* Show video once it can play */
+.coming-soon-hero.video-ready > video{
+  opacity: 1;
 }
 
-/* Make the CTAs stack nicely on mobile */
-.coming-soon-page .cta-row {
-  display: inline-flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 1.25rem;
-}
-
-@media (max-width: 600px) {
-  .coming-soon-page .cta-row {
-    display: grid;
-    width: min(520px, 100%);
-  }
-  .coming-soon-page .cta-row .cta {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-/* Reduce motion: hide video on small screens or if user prefers reduced motion */
-@media (prefers-reduced-motion: reduce), (max-width: 600px) {
-  .coming-soon-hero > video {
-    display: none;
-  }
-  .coming-soon-hero {
+/* Reduce motion / mobile: hide video and show poster image */
+@media (prefers-reduced-motion: reduce), (max-width: 600px){
+  .coming-soon-hero > video{ display:none; }
+  .coming-soon-hero{
     background: url("images/coming-soon.jpg") center / cover no-repeat;
   }
 }
@@ -380,6 +373,25 @@ body.is-entering.is-visible { opacity: 1; }
   transition: transform .15s ease, box-shadow .15s ease;
 }
 
+/* LinkedIn branded CTA */
+.coming-cta-linkedin{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* "Connect on" text */
+.coming-cta-linkedin .li-text{
+  font-weight: 700;
+}
+
+/* LinkedIn wordmark logo */
+.coming-cta-linkedin .li-wordmark{
+  height: 22px;      /* controls logo size */
+  width: auto;
+  display: block;
+}
+
 .coming-cta:hover{
   transform: translateY(-2px);
   box-shadow: 0 12px 26px rgba(0,0,0,0.3);
@@ -398,3 +410,4 @@ body.is-entering.is-visible { opacity: 1; }
     gap: 14px;
   }
 }
+

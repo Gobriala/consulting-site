@@ -14,36 +14,61 @@
       <source src="video/coming-soon-1.mp4" type="video/mp4">
     </video>
 
-    <div class="container coming-soon-wrap">
-  <div class="coming-pill" role="status" aria-label="Work in progress">
-    <span class="pill-dot" aria-hidden="true"></span>
-    Work in progress — coming soon
-  </div>
+    <!-- Overlay layer on top of video -->
+    <div class="coming-soon-overlay">
+      <!-- Centered max-width wrapper -->
+      <div class="coming-soon-wrap">
 
-  <h1 class="coming-title">Big updates are on the way.</h1>
-
-  <p class="coming-subtitle">
-    I’m refreshing this site with new work, sharper storytelling, and a few thoughtful upgrades.
-    <br>
-    If you’re here from LinkedIn — welcome 👋
-  </p>
-
-  <!-- Buttons -->
-  <div class="coming-cta-row">
-    <a class="cta coming-cta" href="https://www.linkedin.com/in/anthony-gobrial/" target="_blank">
-      Connect on LinkedIn
-    </a>
-
-    <a class="cta coming-cta" href="mailto:YOUR_EMAIL_HERE">
-      Email me
-    </a>
-  </div>
-
-  <p class="coming-footer">© 2026 Anthony Gobrial</p>
+        <div class="coming-pill">
+          <span class="pill-dot" aria-hidden="true"></span>
+          <span>Work in progress — coming soon</span>
         </div>
+
+        <h1 class="coming-title">Big updates are on the way.</h1>
+
+        <p class="coming-subtitle">
+          I’m refreshing this site with new work, sharper storytelling, and a few thoughtful upgrades.
+          <br>
+          If you’re here from LinkedIn — welcome 👋
+        </p>
+
+        <div class="coming-cta-row">
+          <a class="cta coming-cta coming-cta-linkedin"
+   href="https://www.linkedin.com/in/anthony-gobrial/"
+   target="_blank"
+   rel="noopener">
+
+  <span class="li-text">Connect on</span>
+
+  <img src="images/linkedin-logo.png"
+       alt="LinkedIn"
+       class="li-wordmark">
+
+</a>
+
+          <a class="cta coming-cta" href="mailto:YOUR_EMAIL_HERE">
+            Email me
+          </a>
+        </div>
+
+        <p class="coming-footer">© 2026 Anthony Gobrial</p>
+
       </div>
     </div>
   </main>
+
+  <script>
+    // Optional: add a class once video can play (only if you use it in CSS)
+    document.addEventListener("DOMContentLoaded", () => {
+      const hero = document.querySelector(".coming-soon-hero");
+      const vid = hero?.querySelector("video");
+      if (!hero || !vid) return;
+
+      const ready = () => hero.classList.add("video-ready");
+      if (vid.readyState >= 2) ready();
+      else vid.addEventListener("canplay", ready, { once: true });
+    });
+  </script>
 
 </body>
 </html>
