@@ -1,5 +1,4 @@
 console.log("scripts.js loaded ✅");
-console.log("submit handler fired ✅");
 
 document.addEventListener("DOMContentLoaded", () => {
     // ===== Fade IN when page loads =====
@@ -87,10 +86,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!form) return;
 
   form.addEventListener("submit", async (e) => {
+    console.log("submit handler fired ✅");
     e.preventDefault();
     e.stopImmediatePropagation();
-
-    console.log("submit handler fired ✅");
 
     const btn = document.getElementById("submitBtn");
     const originalBtnText = btn ? btn.textContent : "";
