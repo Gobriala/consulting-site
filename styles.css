@@ -154,6 +154,7 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
     width: 100%;
     justify-content: center;
   }
+}
 
 /* LinkedIn verified-style tooltip */
 .li-tooltip-wrap{
@@ -179,6 +180,7 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  z-index: 9999;
 }
 
 .li-tooltip::after{
@@ -204,20 +206,11 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
   transform: translateX(-50%) translateY(0);
 }
 
-/* Full width on mobile */
-@media (max-width: 600px){
-  .cta.cta-linkedin{
-    width: 100%;
-    justify-content: center;
-  }
-}
-
 /* Hide tooltip on touch devices */
 @media (hover: none){
   .li-tooltip{ display:none; }
 }
 
-}
 @media (max-width: 600px){
   .cta-row, .cta-group, .button-row{
     display: grid;
