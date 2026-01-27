@@ -156,84 +156,6 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
   }
 }
 
-/* LinkedIn verified-style tooltip */
-.li-tooltip-wrap{
-  position: relative;
-  display: inline-flex;
-}
-
-.li-tooltip{
-  position: absolute;
-  top: calc(100% + 12px);
-  left: 50%;
-  transform: translateX(-50%) translateY(-4px);
-  background: rgba(17,17,17,0.95);
-  color: #fff;
-  font-size: 0.85rem;
-  padding: 8px 12px;
-  border-radius: 10px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-
-  transition:
-    opacity 160ms ease 400ms,   /* delay before fade in */
-    transform 160ms ease 400ms; /* delay before slide */
-}
-
-.li-tooltip::after{
-  content:"";
-  position:absolute;
-  top:100%;
-  left:50%;
-  transform: translateX(-50%);
-  border: 7px solid transparent;
-  border-top-color: rgba(17,17,17,0.95);
-}
-
-.li-verified-dot{
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: #0A66C2;
-  box-shadow: 0 0 0 2px rgba(10,102,194,0.25);
-}
-
-.li-tooltip-wrap:hover .li-tooltip,
-.li-tooltip-wrap:focus-within .li-tooltip{
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-/* Hide tooltip on touch devices */
-@media (hover: none){
-  .li-tooltip{ display:none; }
-}
-
-@media (max-width: 600px){
-  .cta-row, .cta-group, .button-row{
-    display: grid;
-    gap: 12px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce){
-  .li-tooltip{ transition: none; transform: translateX(-50%); }
-}
-
-/* Page fade before redirect */
-body {  transition: opacity 700ms ease;}
-body.is-leaving {  opacity: 0;}
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) 
-{  body { transition: none; }
-}
-
-/* Thank you page fade IN */
-body.is-entering {  opacity: 0;}
-body.is-entering.is-visible { opacity: 1; }
-
 /* =========================
    Coming Soon page (video bg)
    Uses your HTML structure:
@@ -374,26 +296,6 @@ body.is-entering.is-visible { opacity: 1; }
   transition: transform .15s ease, box-shadow .15s ease;
 }
 
-/* LinkedIn branded CTA */
-.coming-cta-linkedin{
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* "Connect on" text */
-.coming-cta-linkedin .li-text{
-  font-weight: 700;
-  color: #0A66C2; /* LinkedIn blue */
-}
-
-/* LinkedIn wordmark logo */
-.coming-cta-linkedin .li-wordmark{
-  height: 22px;      /* controls logo size */
-  width: auto;
-  display: block;
-}
-
 /* Email CTA should use black text */
 .coming-cta[href^="mailto:"]{
   color: #111;
@@ -402,6 +304,13 @@ body.is-entering.is-visible { opacity: 1; }
 .coming-cta:hover{
   transform: translateY(-2px);
   box-shadow: 0 12px 26px rgba(0,0,0,0.3);
+}
+
+.coming-cta-linkedin .li-wordmark{
+  display: block;
+  height: 22px;          /* adjust to match your screenshot */
+  width: auto;
+  margin: 0 !important;  /* kills any accidental margins */
 }
 
 .coming-footer{
@@ -420,44 +329,30 @@ body.is-entering.is-visible { opacity: 1; }
   }
 }
 
-/* Coming soon: LinkedIn CTA + tooltip */
-.coming-cta-linkedin{
-  color:#0A66C2;              /* makes “Connect on” LinkedIn blue */
-}
-
-.coming-cta-linkedin .li-wordmark{
-  height: 22px;
-  width: auto;
-  vertical-align: -4px;
-  margin-left: 10px;
-}
-
 /* Tooltip wrapper */
 .li-tooltip-wrap{
   position: relative;
   display: inline-block;
 }
 
-/* Tooltip bubble BELOW button */
+/* Tooltip appears BELOW and with a delay */
 .li-tooltip{
-  position: absolute;
-  top: calc(100% + 12px); /* BELOW button */
+  top: calc(100% + 10px);     /* below the trigger */
+  bottom: auto;
   left: 50%;
-  transform: translateX(-50%) translateY(-4px);
-  background: rgba(17,17,17,0.95);
-  color: #fff;
-  font-size: 0.85rem;
-  padding: 8px 12px;
-  border-radius: 10px;
-  white-space: nowrap;
+  transform: translateX(-50%) translateY(-6px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 160ms ease, transform 160ms ease;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  z-index: 50;
+  transition:
+    opacity 160ms ease 650ms,  /* <-- delay here */
+    transform 160ms ease 650ms;
+}
+
+/* Show on hover/focus */
+.li-tooltip-wrap:hover .li-tooltip,
+.li-tooltip-wrap:focus-within .li-tooltip{
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* Tooltip arrow (points UP to button) */
@@ -492,22 +387,8 @@ body.is-entering.is-visible { opacity: 1; }
   .li-tooltip{ display:none; }
 }
 
-/* LinkedIn CTA layout tightening */
 .coming-cta-linkedin{
   display: inline-flex;
   align-items: center;
-  gap: 2px; /* smaller controlled gap */
-}
-
-/* Remove weird inline image spacing */
-.li-wordmark{
-  display: block;
-  height: 22px;
-}
-
-/* Remove extra spacing from text */
-.li-text{
-  margin: 0;
-  padding: 0;
-  line-height: 1;
+  gap: 6px; /* controls space between "Connect on" and logo */
 }
