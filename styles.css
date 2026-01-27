@@ -148,6 +148,20 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
   color:#fff;
 }
 
+/* LinkedIn button: full-width on mobile */
+@media (max-width: 600px){
+  .cta.cta-linkedin{
+    width: 100%;
+    justify-content: center;
+  }
+
+}
+@media (max-width: 600px){
+  .cta-row, .cta-group, .button-row{
+    display: grid;
+    gap: 12px;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .contact-form { transition: none; }
 }
