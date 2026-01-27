@@ -1,14 +1,52 @@
 
 console.log("scripts.js loaded ✅");
-document.addEventListener('DOMContentLoaded', function() {
+// Fade IN when page loads
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ===== Fade IN animation ===== */
+  document.body.classList.add("is-entering");
+  requestAnimationFrame(() => {
+    document.body.classList.add("is-visible");
+  });
+
+  /* ===== Existing menu toggle code ===== */
   const navToggle = document.getElementById('nav-toggle');
   const primaryMenu = document.getElementById('primary-menu');
 
-  navToggle.addEventListener('click', function() {
-    const expanded = this.getAttribute('aria-expanded') === 'true';
-    this.setAttribute('aria-expanded', String(!expanded));
-    primaryMenu.style.display = expanded ? '' : 'flex';
+  if (navToggle && primaryMenu) {
+    navToggle.addEventListener('click', () => {
+      primaryMenu.classList.toggle('open');
+      navToggle.setAttribute(
+        'aria-expanded',
+        primaryMenu.classList.contains('open')
+      );
+    });
+  }
+
+});
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ===== Fade IN animation ===== */
+  document.body.classList.add("is-entering");
+  requestAnimationFrame(() => {
+    document.body.classList.add("is-visible");
   });
+
+  /* ===== Existing menu toggle code ===== */
+  const navToggle = document.getElementById('nav-toggle');
+  const primaryMenu = document.getElementById('primary-menu');
+
+  if (navToggle && primaryMenu) {
+    navToggle.addEventListener('click', () => {
+      primaryMenu.classList.toggle('open');
+      navToggle.setAttribute(
+        'aria-expanded',
+        primaryMenu.classList.contains('open')
+      );
+    });
+  }
+
+});
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
