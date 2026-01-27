@@ -203,7 +203,7 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
 .li-tooltip-wrap:hover .li-tooltip,
 .li-tooltip-wrap:focus-within .li-tooltip{
   opacity: 1;
-  transform: translateX(-50%) translateY(0) scale(1);
+  transform: translateX(-50%) translateY(0);
 }
 
 /* Hide tooltip on touch devices */
