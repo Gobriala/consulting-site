@@ -177,8 +177,8 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
   pointer-events: none;
 
   transition:
-    opacity 160ms ease 250ms,   /* delay before fade in */
-    transform 160ms ease 250ms; /* delay before slide */
+    opacity 160ms ease 400ms,   /* delay before fade in */
+    transform 160ms ease 400ms; /* delay before slide */
 }
 
 .li-tooltip::after{
@@ -496,7 +496,7 @@ body.is-entering.is-visible { opacity: 1; }
 .coming-cta-linkedin{
   display: inline-flex;
   align-items: center;
-  gap: 8px; /* smaller controlled gap */
+  gap: 6px; /* smaller controlled gap */
 }
 
 /* Remove weird inline image spacing */
