@@ -83,9 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ===== Contact form submission (Formspree + custom redirect + fade out) =====
-  const form = document.querySelector(".contact-form");
-  if (!form) return;
-
+const form = document.querySelector(".contact-form");
+if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     e.stopImmediatePropagation();
@@ -101,9 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     form.classList.add("is-submitting");
 
-    // start fade right away so it's noticeable
-    document.body.classList.add("is-leaving");
-
     try {
       const response = await fetch(form.action, {
         method: form.method,
@@ -111,23 +107,24 @@ document.addEventListener("DOMContentLoaded", () => {
         headers: { Accept: "application/json" },
       });
 
-    // Fade the entire page BEFORE redirect
       if (response.ok) {
+        // Fade the entire page BEFORE redirect
         document.body.classList.add("is-leaving");
-        
+
+        // Make the fade noticeable (match CSS duration)
         setTimeout(() => {
           window.location.assign("/thank-you.html");
         }, 700);
-        
+
         return;
       }
-    } else {
-      document.body.classList.remove("is-leaving");
+
+      // Not OK response (stay on page)
       alert("Oops! Something went wrong. Please try again.");
     } catch (err) {
-      document.body.classList.remove("is-leaving");
       alert("Network error. Please try again later.");
     } finally {
+      // Only restore UI if we DIDN'T redirect
       form.classList.remove("is-submitting");
       if (btn) {
         btn.disabled = false;
@@ -137,4 +134,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-});
+}
