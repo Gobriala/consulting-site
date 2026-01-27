@@ -121,20 +121,14 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
 }
 
 /* Page fade before redirect */
-body {
-  transition: opacity 700ms ease;
-}
-
-body.is-leaving {
-  opacity: 0;
-}
+body {  transition: opacity 700ms ease;}
+body.is-leaving {  opacity: 0;}
 
 /* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  body { transition: none; }
+@media (prefers-reduced-motion: reduce) 
+{  body { transition: none; }
 }
 
 /* Thank you page fade IN */
-body.is-entering {
-  opacity: 0;
-}
+body.is-entering {  opacity: 0;}
+body.is-entering.is-visible { opacity: 1; }
