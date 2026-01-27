@@ -159,10 +159,12 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
 /* LinkedIn verified-style tooltip */
 .li-tooltip-wrap{
   position: relative;
-  display: inline-block;
+  display: inline-flex;
 }
 
 .li-tooltip{
+  transform: translateX(-50%) translateY(8px) scale(.98);
+  transition: opacity 160ms ease, transform 160ms ease;
   position: absolute;
   left: 50%;
   bottom: calc(100% + 10px);
@@ -198,12 +200,13 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
   height: 10px;
   border-radius: 999px;
   background: #0A66C2;
+  box-shadow: 0 0 0 2px rgba(10,102,194,0.25);
 }
 
 .li-tooltip-wrap:hover .li-tooltip,
 .li-tooltip-wrap:focus-within .li-tooltip{
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
+  transform: translateX(-50%) translateY(0) scale(1);
 }
 
 /* Hide tooltip on touch devices */
