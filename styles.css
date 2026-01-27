@@ -105,10 +105,6 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
 .hp-field{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
 
 /* Form submit UX */
-.contact-form {
-  transition: opacity 220ms ease, transform 220ms ease;
-}
-
 .contact-form.is-submitting {
   opacity: 0.75;
   transform: translateY(2px);
@@ -141,9 +137,4 @@ body.is-leaving {
 /* Thank you page fade IN */
 body.is-entering {
   opacity: 0;
-}
-
-body.is-entering.is-visible {
-  opacity: 1;
-  transition: opacity 500ms ease;
 }

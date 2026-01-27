@@ -1,4 +1,6 @@
-console.log("scripts.js loaded âœ…");
+console.log("scripts.js loaded");
+...
+console.log("submit handler fired");
 
 document.addEventListener("DOMContentLoaded", () => {
   // ===== Fade IN when page loads =====
@@ -89,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     e.stopImmediatePropagation();
 
-    console.log("submit handler fired âœ…");
+    console.log("submit handler fired ✅");
 
     const btn = document.getElementById("submitBtn");
     if (btn) {
