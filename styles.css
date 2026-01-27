@@ -404,9 +404,9 @@ body.is-entering.is-visible { opacity: 1; }
 }
 
 .coming-footer{
-  margin-top: auto;            /* pushes it toward bottom */
-  padding-top: 40px;           /* space above */
-  padding-bottom: 30px;        /* breathing room from bottom edge */
+  margin-top: auto;          /* pushes it to the bottom of flex column */
+  padding-top: 60px;         /* space above footer */
+  padding-bottom: 50px;      /* space from bottom edge */
   color: rgba(255,255,255,0.75);
   font-weight: 600;
 }
