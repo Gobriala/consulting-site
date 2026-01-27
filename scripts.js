@@ -63,6 +63,9 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.textContent = "Sending...";
     }
 
+    form.classList.add("is-submitting");
+    if (btn) btn.classList.add("is-loading");
+
     const data = new FormData(form);
 
     try {
@@ -75,18 +78,22 @@ document.addEventListener("DOMContentLoaded", () => {
       if (response.ok) {
         window.location.href = "/thank-you.html";
       } else {
-        alert("Oops! Something went wrong. Please try again.");
-        if (btn) {
-          btn.disabled = false;
-          btn.textContent = "Send message";
-        }
+  alert("Oops! Something went wrong. Please try again.");
+  btn.disabled = false;
+  btn.textContent = "Send message";
+
+  form.classList.remove("is-submitting");
+  if (btn) btn.classList.remove("is-loading");
+}
       }
     } catch (error) {
-      alert("Network error. Please try again later.");
-      if (btn) {
-        btn.disabled = false;
-        btn.textContent = "Send message";
-      }
+  alert("Network error. Please try again later.");
+  btn.disabled = false;
+  btn.textContent = "Send message";
+
+  form.classList.remove("is-submitting");
+  if (btn) btn.classList.remove("is-loading");
+}
     }
   });
 });
