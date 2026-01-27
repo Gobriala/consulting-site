@@ -125,9 +125,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         return;
       }
-
+      document.body.classList.remove("is-leaving");
       alert("Oops! Something went wrong. Please try again.");
     } catch (err) {
+      document.body.classList.remove("is-leaving");
       alert("Network error. Please try again later.");
     } finally {
       if (redirected) return;
