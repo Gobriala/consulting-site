@@ -1,5 +1,4 @@
 console.log("scripts.js loaded");
-...
 console.log("submit handler fired");
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -102,6 +101,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     form.classList.add("is-submitting");
 
+    // start fade right away so it's noticeable
+    document.body.classList.add("is-leaving");
+
     try {
       const response = await fetch(form.action, {
         method: form.method,
@@ -109,20 +111,21 @@ document.addEventListener("DOMContentLoaded", () => {
         headers: { Accept: "application/json" },
       });
 
+    // Fade the entire page BEFORE redirect
       if (response.ok) {
-        // Fade the entire page BEFORE redirect
         document.body.classList.add("is-leaving");
-
-        // Match this delay to your CSS transition duration
+        
         setTimeout(() => {
           window.location.assign("/thank-you.html");
-        }, 500);
-
+        }, 700);
+        
         return;
       }
-
+    } else {
+      document.body.classList.remove("is-leaving");
       alert("Oops! Something went wrong. Please try again.");
     } catch (err) {
+      document.body.classList.remove("is-leaving");
       alert("Network error. Please try again later.");
     } finally {
       form.classList.remove("is-submitting");
