@@ -116,6 +116,29 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
   cursor: progress;
 }
 
+/* LinkedIn button variant */
+.cta.cta-linkedin{
+  background:#0A66C2;
+  color:#fff;
+}
+
+.cta.cta-linkedin:hover{
+  transform: translateY(-2px);
+}
+
+.cta.cta-linkedin:focus{
+  outline: 3px solid #ffd54f;
+  outline-offset: 3px;
+}
+
+.li-icon{
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  vertical-align: -3px;
+  fill: currentColor;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .contact-form { transition: none; }
 }
