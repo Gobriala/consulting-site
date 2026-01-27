@@ -86,58 +86,64 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!form) return;
 
   form.addEventListener("submit", async (e) => {
-    console.log("submit handler fired ✅");
-    e.preventDefault();
-    e.stopImmediatePropagation();
+  console.log("submit handler fired ✅");
+  e.preventDefault();
+  e.stopImmediatePropagation();
 
-    const btn = document.getElementById("submitBtn");
-    const originalBtnText = btn ? btn.textContent : "";
+  const btn = document.getElementById("submitBtn");
+  const originalBtnText = btn ? btn.textContent : "";
 
-    let redirected = false;
+  let redirected = false;
 
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = "Sending...";
+    btn.classList.add("is-loading");
+    btn.setAttribute("aria-busy", "true");
+  }
+  form.classList.add("is-submitting");
+
+  // 🧪 TEST MODE — prevents real Formspree submission
+  const TEST_MODE = true; // change to false when going live
+
+  if (TEST_MODE) {
+    redirected = true;
+    document.body.classList.add("is-leaving");
+    setTimeout(() => {
+      window.location.assign("/thank-you.html");
+    }, 700);
+    return;
+  }
+
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    });
+
+    if (response.ok) {
+      redirected = true;
+      document.body.classList.add("is-leaving");
+      setTimeout(() => {
+        window.location.assign("/thank-you.html");
+      }, 700);
+      return;
+    }
+
+    alert("Oops! Something went wrong. Please try again.");
+  } catch (err) {
+    alert("Network error. Please try again later.");
+  } finally {
+    if (redirected) return;
+
+    form.classList.remove("is-submitting");
     if (btn) {
-      btn.disabled = true;
-      btn.textContent = "Sending...";
-      btn.classList.add("is-loading");
-      btn.setAttribute("aria-busy", "true");
+      btn.disabled = false;
+      btn.textContent = originalBtnText || "Send message";
+      btn.classList.remove("is-loading");
+      btn.removeAttribute("aria-busy");
     }
-    form.classList.add("is-submitting");
-
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
-      });
-
-      if (response.ok) {
-        redirected = true;
-
-        // Fade the entire page BEFORE redirect
-        document.body.classList.add("is-leaving");
-
-        // Match this to CSS transition duration
-        setTimeout(() => {
-          window.location.assign("/thank-you.html");
-        }, 700);
-
-        return;
-      }
-      document.body.classList.remove("is-leaving");
-      alert("Oops! Something went wrong. Please try again.");
-    } catch (err) {
-      document.body.classList.remove("is-leaving");
-      alert("Network error. Please try again later.");
-    } finally {
-      if (redirected) return;
-
-      form.classList.remove("is-submitting");
-      if (btn) {
-        btn.disabled = false;
-        btn.textContent = originalBtnText || "Send message";
-        btn.classList.remove("is-loading");
-        btn.removeAttribute("aria-busy");
-      }
-    }
-  });
+  }
+});
 });
