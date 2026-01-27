@@ -124,3 +124,17 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
 @media (prefers-reduced-motion: reduce) {
   .contact-form { transition: none; }
 }
+
+/* Page fade before redirect */
+body {
+  transition: opacity 300ms ease;
+}
+
+body.is-leaving {
+  opacity: 0;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  body { transition: none; }
+}

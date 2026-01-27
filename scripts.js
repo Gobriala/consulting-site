@@ -75,9 +75,14 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (response.ok) {
-        window.location.assign("/thank-you.html");
-        return;
-      }
+  document.body.classList.add("is-leaving"); // start fade
+
+  setTimeout(() => {
+    window.location.assign("/thank-you.html");
+  }, 300); // matches the CSS fade duration
+
+  return;
+}
 
       alert("Oops! Something went wrong. Please try again.");
     } catch {
