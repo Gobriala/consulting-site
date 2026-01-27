@@ -251,6 +251,12 @@ body.is-entering.is-visible { opacity: 1; }
 .coming-soon-hero{
   position: relative;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* keeps main content centered vertically */
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px 80px;   /* bottom padding = breathing room */
   overflow: hidden;
 }
 
@@ -287,12 +293,9 @@ body.is-entering.is-visible { opacity: 1; }
 .coming-soon-overlay{
   position: relative;
   z-index: 2;
-  min-height: 100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding: 2rem;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
 /* Show video once it can play */
