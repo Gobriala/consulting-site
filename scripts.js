@@ -107,11 +107,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const TEST_MODE = true; // change to false when going live
 
   if (TEST_MODE) {
-    redirected = true;
+  redirected = true;
+
+  // Fake network delay (1.2 seconds feels realistic)
+  let dots = 0;
+  const spinner = setInterval(() => {
+    if (btn) {
+      dots = (dots + 1) % 4;
+      btn.textContent = "Sending" + ".".repeat(dots);
+    }
+  }, 300);
+
+  setTimeout(() => {
+    clearInterval(spinner);
     document.body.classList.add("is-leaving");
     setTimeout(() => {
       window.location.assign("/thank-you.html");
     }, 700);
+  }, 1200);
+
     return;
   }
 
