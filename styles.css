@@ -159,7 +159,7 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
 /* LinkedIn verified-style tooltip */
 .li-tooltip-wrap{
   position: relative;
-  display: inline-flex;
+  display: inline-block;
 }
 
 .li-tooltip{
