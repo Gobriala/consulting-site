@@ -422,3 +422,74 @@ body.is-entering.is-visible { opacity: 1; }
   }
 }
 
+/* Coming soon: LinkedIn CTA + tooltip */
+.coming-cta-linkedin{
+  color:#0A66C2;              /* makes “Connect on” LinkedIn blue */
+}
+
+.coming-cta-linkedin .li-wordmark{
+  height: 22px;
+  width: auto;
+  vertical-align: -4px;
+  margin-left: 10px;
+}
+
+/* Tooltip wrapper */
+.li-tooltip-wrap{
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip bubble BELOW button */
+.li-tooltip{
+  position: absolute;
+  top: calc(100% + 12px); /* BELOW button */
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  background: rgba(17,17,17,0.95);
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 8px 12px;
+  border-radius: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 50;
+}
+
+/* Tooltip arrow (points UP to button) */
+.li-tooltip::before{
+  content:"";
+  position:absolute;
+  bottom:100%;
+  left:50%;
+  transform: translateX(-50%);
+  border:7px solid transparent;
+  border-bottom-color: rgba(17,17,17,0.95);
+}
+
+/* Blue dot */
+.li-verified-dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #0A66C2;
+  box-shadow: 0 0 0 2px rgba(10,102,194,0.25);
+}
+
+/* Show on hover + keyboard focus */
+.li-tooltip-wrap:hover .li-tooltip,
+.li-tooltip-wrap:focus-within .li-tooltip{
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* No tooltip on touch devices */
+@media (hover: none){
+  .li-tooltip{ display:none; }
+}
