@@ -155,6 +155,68 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
     justify-content: center;
   }
 
+/* LinkedIn verified-style tooltip */
+.li-tooltip-wrap{
+  position: relative;
+  display: inline-block;
+}
+
+.li-tooltip{
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%) translateY(6px);
+  background: rgba(17,17,17,0.95);
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 8px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 140ms ease, transform 140ms ease;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.li-tooltip::after{
+  content:"";
+  position:absolute;
+  top:100%;
+  left:50%;
+  transform: translateX(-50%);
+  border: 7px solid transparent;
+  border-top-color: rgba(17,17,17,0.95);
+}
+
+.li-verified-dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #0A66C2;
+}
+
+.li-tooltip-wrap:hover .li-tooltip,
+.li-tooltip-wrap:focus-within .li-tooltip{
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Full width on mobile */
+@media (max-width: 600px){
+  .cta.cta-linkedin{
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Hide tooltip on touch devices */
+@media (hover: none){
+  .li-tooltip{ display:none; }
+}
+
 }
 @media (max-width: 600px){
   .cta-row, .cta-group, .button-row{
