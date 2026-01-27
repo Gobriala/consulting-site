@@ -383,6 +383,7 @@ body.is-entering.is-visible { opacity: 1; }
 /* "Connect on" text */
 .coming-cta-linkedin .li-text{
   font-weight: 700;
+  color: #0A66C2; /* LinkedIn blue */
 }
 
 /* LinkedIn wordmark logo */
@@ -392,13 +393,20 @@ body.is-entering.is-visible { opacity: 1; }
   display: block;
 }
 
+/* Email CTA should use black text */
+.coming-cta[href^="mailto:"]{
+  color: #111;
+}
+
 .coming-cta:hover{
   transform: translateY(-2px);
   box-shadow: 0 12px 26px rgba(0,0,0,0.3);
 }
 
 .coming-footer{
-  margin-top: 28px;
+  margin-top: auto;            /* pushes it toward bottom */
+  padding-top: 40px;           /* space above */
+  padding-bottom: 30px;        /* breathing room from bottom edge */
   color: rgba(255,255,255,0.75);
   font-weight: 600;
 }
