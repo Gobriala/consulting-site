@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".contact-form");
   if (!form) return;
 
-  form.addEventListener("submit", async function (e) {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     e.stopImmediatePropagation();
 
@@ -61,39 +61,35 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btn) {
       btn.disabled = true;
       btn.textContent = "Sending...";
+      btn.classList.add("is-loading");
+      btn.setAttribute("aria-busy", "true");
     }
 
     form.classList.add("is-submitting");
-    if (btn) btn.classList.add("is-loading");
-
-    const data = new FormData(form);
 
     try {
       const response = await fetch(form.action, {
         method: form.method,
-        body: data,
-        headers: { Accept: "application/json" }
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
       });
 
       if (response.ok) {
-        window.location.href = "/thank-you.html";
-      } else {
-  alert("Oops! Something went wrong. Please try again.");
-  btn.disabled = false;
-  btn.textContent = "Send message";
-
-  form.classList.remove("is-submitting");
-  if (btn) btn.classList.remove("is-loading");
-}
+        window.location.assign("/thank-you.html");
+        return;
       }
-    } catch (error) {
-  alert("Network error. Please try again later.");
-  btn.disabled = false;
-  btn.textContent = "Send message";
 
-  form.classList.remove("is-submitting");
-  if (btn) btn.classList.remove("is-loading");
-}
+      alert("Oops! Something went wrong. Please try again.");
+    } catch {
+      alert("Network error. Please try again later.");
+    } finally {
+      form.classList.remove("is-submitting");
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = "Send message";
+        btn.classList.remove("is-loading");
+        btn.removeAttribute("aria-busy");
+      }
     }
   });
 });

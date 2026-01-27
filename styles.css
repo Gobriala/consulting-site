@@ -105,3 +105,22 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
 .contact-meta{margin-top:1rem;color:#444;font-size:.95rem;}
 .hp-field{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
 
+/* Form submit UX */
+.contact-form {
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.contact-form.is-submitting {
+  opacity: 0.75;
+  transform: translateY(2px);
+  pointer-events: none;
+}
+
+#submitBtn.is-loading {
+  opacity: 0.85;
+  cursor: progress;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-form { transition: none; }
+}
