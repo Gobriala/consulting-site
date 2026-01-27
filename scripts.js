@@ -1,91 +1,87 @@
+console.log("scripts.js loaded âœ…");
 
-console.log("scripts.js loaded ✅");
-// Fade IN when page loads
 document.addEventListener("DOMContentLoaded", () => {
-
-  /* ===== Fade IN animation ===== */
+  // ===== Fade IN when page loads =====
   document.body.classList.add("is-entering");
   requestAnimationFrame(() => {
     document.body.classList.add("is-visible");
   });
 
-  /* ===== Existing menu toggle code ===== */
-  const navToggle = document.getElementById('nav-toggle');
-  const primaryMenu = document.getElementById('primary-menu');
+  // ===== Mobile nav toggle =====
+  const navToggle = document.getElementById("nav-toggle");
+  const primaryMenu = document.getElementById("primary-menu");
 
   if (navToggle && primaryMenu) {
-    navToggle.addEventListener('click', () => {
-      primaryMenu.classList.toggle('open');
+    navToggle.addEventListener("click", () => {
+      primaryMenu.classList.toggle("open");
       navToggle.setAttribute(
-        'aria-expanded',
-        primaryMenu.classList.contains('open')
+        "aria-expanded",
+        primaryMenu.classList.contains("open")
       );
     });
   }
 
-});
-document.addEventListener("DOMContentLoaded", () => {
+  // ===== Smooth scroll for in-page anchors =====
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      const href = anchor.getAttribute("href");
+      const target = href ? document.querySelector(href) : null;
+      if (!target) return;
 
-  /* ===== Fade IN animation ===== */
-  document.body.classList.add("is-entering");
-  requestAnimationFrame(() => {
-    document.body.classList.add("is-visible");
-  });
-
-  /* ===== Existing menu toggle code ===== */
-  const navToggle = document.getElementById('nav-toggle');
-  const primaryMenu = document.getElementById('primary-menu');
-
-  if (navToggle && primaryMenu) {
-    navToggle.addEventListener('click', () => {
-      primaryMenu.classList.toggle('open');
-      navToggle.setAttribute(
-        'aria-expanded',
-        primaryMenu.classList.contains('open')
-      );
-    });
-  }
-
-});
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
 
-  const modal = document.getElementById('case-modal');
-  const modalContent = document.getElementById('case-modal-content');
-  const openButtons = document.querySelectorAll('.open-case');
-  const closeBtn = modal.querySelector('.modal-close');
+  // ===== Modal (case studies) =====
+  const modal = document.getElementById("case-modal");
+  const modalContent = document.getElementById("case-modal-content");
+  const openButtons = document.querySelectorAll(".open-case");
+  const closeBtn = modal ? modal.querySelector(".modal-close") : null;
 
   function openModal(caseId) {
+    if (!modal || !modalContent || !closeBtn) return;
+
     const cases = {
-      case1: '<p><strong>HCP Portal Redesign:</strong> Improved findability, simplified UX, reduced bounce, increased completion rate.</p>',
-      case2: '<p><strong>B2B eCommerce Implementation:</strong> Checkout optimization, analytics integration, conversion measurement.</p>',
-      case3: '<p><strong>Omni-channel Campaign:</strong> Coordinated web, email, paid for qualified lead lift.</p>'
+      case1:
+        '<p><strong>HCP Portal Redesign:</strong> Improved findability, simplified UX, reduced bounce, increased completion rate.</p>',
+      case2:
+        '<p><strong>B2B eCommerce Implementation:</strong> Checkout optimization, analytics integration, conversion measurement.</p>',
+      case3:
+        '<p><strong>Omni-channel Campaign:</strong> Coordinated web, email, paid for qualified lead lift.</p>',
     };
-    modalContent.innerHTML = cases[caseId] || '<p>Case details coming soon.</p>';
-    modal.setAttribute('aria-hidden', 'false');
-    modal.style.display = 'block';
+
+    modalContent.innerHTML = cases[caseId] || "<p>Case details coming soon.</p>";
+    modal.setAttribute("aria-hidden", "false");
+    modal.style.display = "block";
     closeBtn.focus();
   }
 
   function closeModal() {
-    modal.setAttribute('aria-hidden', 'true');
-    modal.style.display = 'none';
+    if (!modal) return;
+    modal.setAttribute("aria-hidden", "true");
+    modal.style.display = "none";
   }
 
-  openButtons.forEach(btn => btn.addEventListener('click', () => openModal(btn.dataset.case)));
-  closeBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal(); });
-});
+  openButtons.forEach((btn) =>
+    btn.addEventListener("click", () => openModal(btn.dataset.case))
+  );
 
-// Contact form submission (Formspree + custom redirect)
-document.addEventListener("DOMContentLoaded", () => {
+  if (closeBtn) closeBtn.addEventListener("click", closeModal);
+
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal && modal.getAttribute("aria-hidden") === "false") {
+      closeModal();
+    }
+  });
+
+  // ===== Contact form submission (Formspree + custom redirect + fade out) =====
   const form = document.querySelector(".contact-form");
   if (!form) return;
 
@@ -93,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     e.stopImmediatePropagation();
 
-    console.log("submit handler fired ✅");
+    console.log("submit handler fired âœ…");
 
     const btn = document.getElementById("submitBtn");
     if (btn) {
@@ -102,7 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.classList.add("is-loading");
       btn.setAttribute("aria-busy", "true");
     }
-
     form.classList.add("is-submitting");
 
     try {
@@ -113,17 +108,19 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (response.ok) {
-  document.body.classList.add("is-leaving"); // start fade
+        // Fade the entire page BEFORE redirect
+        document.body.classList.add("is-leaving");
 
-  setTimeout(() => {
-    window.location.assign("/thank-you.html");
-  }, 300); // matches the CSS fade duration
+        // Match this delay to your CSS transition duration
+        setTimeout(() => {
+          window.location.assign("/thank-you.html");
+        }, 500);
 
-  return;
-}
+        return;
+      }
 
       alert("Oops! Something went wrong. Please try again.");
-    } catch {
+    } catch (err) {
       alert("Network error. Please try again later.");
     } finally {
       form.classList.remove("is-submitting");
