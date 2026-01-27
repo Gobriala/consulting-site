@@ -120,6 +120,28 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
 .cta.cta-linkedin{
   background:#0A66C2;
   color:#fff;
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  padding: .9rem 1.6rem;
+}
+
+/* White square behind the icon */
+.li-badge{
+  background:#fff;
+  border-radius:4px;
+  width:28px;
+  height:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* LinkedIn logo */
+.li-icon{
+  width:16px;
+  height:16px;
+  fill:#0A66C2;
 }
 
 .cta.cta-linkedin:hover{
@@ -129,6 +151,29 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
 .cta.cta-linkedin:focus{
   outline: 3px solid #ffd54f;
   outline-offset: 3px;
+}
+
+.cta.cta-linkedin{
+  background:#0A66C2;
+  color:#fff;
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  padding:.9rem 1.6rem;
+  transition: background-color 160ms ease, transform 120ms ease, box-shadow 120ms ease;
+}
+
+/* Hover state — darker LinkedIn blue */
+.cta.cta-linkedin:hover{
+  background:#004182;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+/* Active (click) state — slight press */
+.cta.cta-linkedin:active{
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
 }
 
 .li-icon{
