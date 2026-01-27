@@ -1,150 +1,135 @@
+console.log("scripts.js loaded ✅");
 
-*{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
-body{margin:0;color:#111;background:#f7f7f8;line-height:1.6;}
-.container{max-width:1100px;margin:0 auto;padding:2rem;}
-.site-header{
-  height: 420px;
-  background-image: linear-gradient(rgba(6,10,15,0.55), rgba(6,10,15,0.35)), url('photos/header-hero.jpg');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  text-align: center;
-}
+document.addEventListener("DOMContentLoaded", () => {
+  // ===== Fade IN when page loads =====
+  document.body.classList.add("is-entering");
+  requestAnimationFrame(() => {
+    document.body.classList.add("is-visible");
+  });
 
-.header-overlay{
-  padding: 2.5rem 1.25rem;
-  max-width: 720px;
-}
+  // ===== Mobile nav toggle =====
+  const navToggle = document.getElementById("nav-toggle");
+  const primaryMenu = document.getElementById("primary-menu");
 
-.header-overlay h1{
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin: 0 0 0.75rem 0;
-  line-height: 1.1;
-  letter-spacing: -0.5px;
-}
+  if (navToggle && primaryMenu) {
+    navToggle.addEventListener("click", () => {
+      primaryMenu.classList.toggle("open");
+      navToggle.setAttribute(
+        "aria-expanded",
+        primaryMenu.classList.contains("open")
+      );
+    });
+  }
 
-.header-overlay p{
-  margin: 0 0 1.5rem;
-  font-size: 1.1rem;
-  opacity: 0.9;
-}
-.cta{
-  display: inline-block;
-  padding: .8rem 1.4rem;
-  border-radius: 6px;
-  background: #fff;
-  color: #061;
-  text-decoration: none;
-  font-weight: 600;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  transition: transform .15s ease, box-shadow .15s ease;
-}
+  // ===== Smooth scroll for in-page anchors =====
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      const href = anchor.getAttribute("href");
+      const target = href ? document.querySelector(href) : null;
+      if (!target) return;
 
-.cta:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.2);
-}
-.nav{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.05);position:sticky;top:0;z-index:40;display:flex;align-items:center;}
-.nav ul{display:flex;gap:1rem;list-style:none;padding:.6rem 2rem;margin:0;align-items:center;width:100%;}
-.nav a{color:#111;text-decoration:none;padding:.4rem .6rem;border-radius:4px;}
-.section{padding:3.5rem 0;}
-.section.alt{background:#fff;}
-.cards{display:flex;gap:1rem;flex-wrap:wrap;}
-.card{background:#fff;padding:1.2rem;border-radius:10px;flex:1;min-width:220px;box-shadow:0 6px 18px rgba(12,18,30,0.06);}
-.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;}
-.portfolio-item{background:#fff;padding:1rem;border-radius:8px;box-shadow:0 6px 18px rgba(12,18,30,0.04);}
-.portfolio-item img{width:100%;height:160px;object-fit:cover;border-radius:6px;}
-.site-footer{padding:2rem 0;text-align:center;font-size:.9rem;color:#666;background:transparent;border-top:1px solid rgba(0,0,0,0.04);}
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
 
-/* Accessibility */
-a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
-.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
-.skip-link:focus{left:10px;top:10px;width:auto;height:auto;background:#000;color:#fff;padding:.5rem 1rem;border-radius:4px;z-index:9999;}
+  // ===== Modal (case studies) =====
+  const modal = document.getElementById("case-modal");
+  const modalContent = document.getElementById("case-modal-content");
+  const openButtons = document.querySelectorAll(".open-case");
+  const closeBtn = modal ? modal.querySelector(".modal-close") : null;
 
-/* Mobile nav */
-#nav-toggle{display:none;background:transparent;border:0;font-size:1.3rem;padding:.6rem 1rem;margin-left:1rem;}
-@media (max-width:900px){
-  #nav-toggle{display:inline-block;}
-  .nav ul{display:none;flex-direction:column;gap:.4rem;padding:.6rem 1rem;}
-  .nav ul a{display:block;width:100%;}
-  .header-overlay h1{font-size:1.6rem;}
-  .header-overlay p{font-size:.95rem;}
-  .site-header{height:420px;}
-}
-/* iPad / tablets */
-@media (min-width:701px) and (max-width:1100px){
-  .site-header{height:480px;}
-  .header-overlay h1{font-size:1.9rem;}
-}
+  function openModal(caseId) {
+    if (!modal || !modalContent || !closeBtn) return;
 
-/* Modal */
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);padding:1rem;z-index:10000;}
-.modal-inner{background:#fff;max-width:780px;width:100%;padding:1.5rem;border-radius:8px;margin:5vh auto;position:relative;box-shadow:0 12px 40px rgba(2,7,23,0.5);}
-.modal-close{position:absolute;right:1rem;top:1rem;background:transparent;border:0;font-size:1.8rem;}
-@media (prefers-reduced-motion: reduce) {
-  *{scroll-behavior:auto!important;transition:none!important;animation:none!important;}
-}
+    const cases = {
+      case1:
+        '<p><strong>HCP Portal Redesign:</strong> Improved findability, simplified UX, reduced bounce, increased completion rate.</p>',
+      case2:
+        '<p><strong>B2B eCommerce Implementation:</strong> Checkout optimization, analytics integration, conversion measurement.</p>',
+      case3:
+        '<p><strong>Omni-channel Campaign:</strong> Coordinated web, email, paid for qualified lead lift.</p>',
+    };
 
-/* Contact form */
-.contact-intro{max-width:720px;margin:0 0 1.2rem;}
-.contact-form{max-width:720px;}
-.form-row{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem;}
-.form-row label{font-weight:600;}
-.contact-form input, .contact-form textarea{
-  width:100%;
-  padding:.75rem .85rem;
-  border:1px solid rgba(0,0,0,.18);
-  border-radius:10px;
-  background:#fff;
-  font-size:1rem;
-}
-.contact-form textarea{resize:vertical;min-height:140px;}
-.contact-meta{margin-top:1rem;color:#444;font-size:.95rem;}
-.hp-field{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+    modalContent.innerHTML = cases[caseId] || "<p>Case details coming soon.</p>";
+    modal.setAttribute("aria-hidden", "false");
+    modal.style.display = "block";
+    closeBtn.focus();
+  }
 
-/* Form submit UX */
-.contact-form {
-  transition: opacity 220ms ease, transform 220ms ease;
-}
+  function closeModal() {
+    if (!modal) return;
+    modal.setAttribute("aria-hidden", "true");
+    modal.style.display = "none";
+  }
 
-.contact-form.is-submitting {
-  opacity: 0.75;
-  transform: translateY(2px);
-  pointer-events: none;
-}
+  openButtons.forEach((btn) =>
+    btn.addEventListener("click", () => openModal(btn.dataset.case))
+  );
 
-#submitBtn.is-loading {
-  opacity: 0.85;
-  cursor: progress;
-}
+  if (closeBtn) closeBtn.addEventListener("click", closeModal);
 
-@media (prefers-reduced-motion: reduce) {
-  .contact-form { transition: none; }
-}
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
 
-/* Page fade before redirect */
-body {
-  transition: opacity 500ms ease;
-}
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal && modal.getAttribute("aria-hidden") === "false") {
+      closeModal();
+    }
+  });
 
-body.is-leaving {
-  opacity: 0;
-}
+  // ===== Contact form submission (Formspree + custom redirect + fade out) =====
+  const form = document.querySelector(".contact-form");
+  if (!form) return;
 
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  body { transition: none; }
-}
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    e.stopImmediatePropagation();
 
-/* Thank you page fade IN */
-body.is-entering {
-  opacity: 0;
-}
+    console.log("submit handler fired ✅");
 
-body.is-entering.is-visible {
-  opacity: 1;
-  transition: opacity 500ms ease;
-}
+    const btn = document.getElementById("submitBtn");
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = "Sending...";
+      btn.classList.add("is-loading");
+      btn.setAttribute("aria-busy", "true");
+    }
+    form.classList.add("is-submitting");
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        // Fade the entire page BEFORE redirect
+        document.body.classList.add("is-leaving");
+
+        // Match this delay to your CSS transition duration
+        setTimeout(() => {
+          window.location.assign("/thank-you.html");
+        }, 500);
+
+        return;
+      }
+
+      alert("Oops! Something went wrong. Please try again.");
+    } catch (err) {
+      alert("Network error. Please try again later.");
+    } finally {
+      form.classList.remove("is-submitting");
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = "Send message";
+        btn.classList.remove("is-loading");
+        btn.removeAttribute("aria-busy");
+      }
+    }
+  });
+});
