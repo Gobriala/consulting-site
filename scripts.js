@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
       dots = (dots + 1) % 4;
       btn.textContent = "Sending" + ".".repeat(dots);
     }
-  }, 300);
+  }, 400);
 
   setTimeout(() => {
     clearInterval(spinner);
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       window.location.assign("/thank-you.html");
     }, 700);
-  }, 1200);
+  }, 2200);
 
     return;
   }
