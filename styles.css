@@ -159,28 +159,12 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
 /* LinkedIn verified-style tooltip */
 .li-tooltip-wrap{
   position: relative;
-  display: inline-block;
+  display: inline-flex;
 }
 
 .li-tooltip{
-  position: absolute;
-  left: 50%;
-  bottom: calc(100% + 10px);
-  transform: translateX(-50%) translateY(6px);
-  background: rgba(17,17,17,0.95);
-  color: #fff;
-  font-size: 0.85rem;
-  padding: 8px 10px;
-  border-radius: 10px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 140ms ease, transform 140ms ease;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  z-index: 9999;
+  transform: translateX(-50%) translateY(8px) scale(.98);
+  transition: opacity 160ms ease, transform 160ms ease;
 }
 
 .li-tooltip::after{
@@ -203,7 +187,7 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
 .li-tooltip-wrap:hover .li-tooltip,
 .li-tooltip-wrap:focus-within .li-tooltip{
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
+  transform: translateX(-50%) translateY(0) scale(1);
 }
 
 /* Hide tooltip on touch devices */
