@@ -132,7 +132,8 @@ if (form) {
         btn.textContent = "Send message";
         btn.classList.remove("is-loading");
         btn.removeAttribute("aria-busy");
-      }
-    }
+          }
   });
-}
+}  // closes if (form)
+
+}); // closes DOMContentLoaded
