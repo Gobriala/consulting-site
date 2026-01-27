@@ -91,6 +91,8 @@ if (form) {
 
     console.log("submit handler fired ✅");
 
+    let redirected = false; // ✅ add this
+
     const btn = document.getElementById("submitBtn");
     if (btn) {
       btn.disabled = true;
@@ -108,10 +110,9 @@ if (form) {
       });
 
       if (response.ok) {
-        // Fade the entire page BEFORE redirect
+        redirected = true; // ✅ add this
         document.body.classList.add("is-leaving");
 
-        // Make the fade noticeable (match CSS duration)
         setTimeout(() => {
           window.location.assign("/thank-you.html");
         }, 700);
@@ -119,12 +120,12 @@ if (form) {
         return;
       }
 
-      // Not OK response (stay on page)
       alert("Oops! Something went wrong. Please try again.");
     } catch (err) {
       alert("Network error. Please try again later.");
     } finally {
-      // Only restore UI if we DIDN'T redirect
+      if (redirected) return; // ✅ add this
+
       form.classList.remove("is-submitting");
       if (btn) {
         btn.disabled = false;
