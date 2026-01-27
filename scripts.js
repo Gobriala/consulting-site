@@ -1,8 +1,8 @@
-console.log("scripts.js loaded");
-console.log("submit handler fired");
+console.log("scripts.js loaded ✅");
+console.log("submit handler fired ✅");
 
 document.addEventListener("DOMContentLoaded", () => {
-  // ===== Fade IN when page loads =====
+    // ===== Fade IN when page loads =====
   document.body.classList.add("is-entering");
   requestAnimationFrame(() => {
     document.body.classList.add("is-visible");
@@ -82,18 +82,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ===== Contact form submission (Formspree + custom redirect + fade out) =====
-const form = document.querySelector(".contact-form");
-if (form) {
+   // ===== Contact form submission (Formspree + custom redirect + fade out) =====
+  const form = document.querySelector(".contact-form");
+  if (!form) return;
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     e.stopImmediatePropagation();
 
     console.log("submit handler fired ✅");
 
-    let redirected = false; // ✅ add this
-
     const btn = document.getElementById("submitBtn");
+    const originalBtnText = btn ? btn.textContent : "";
+
+    let redirected = false;
+
     if (btn) {
       btn.disabled = true;
       btn.textContent = "Sending...";
@@ -110,9 +113,12 @@ if (form) {
       });
 
       if (response.ok) {
-        redirected = true; // ✅ add this
+        redirected = true;
+
+        // Fade the entire page BEFORE redirect
         document.body.classList.add("is-leaving");
 
+        // Match this to CSS transition duration
         setTimeout(() => {
           window.location.assign("/thank-you.html");
         }, 700);
@@ -124,16 +130,15 @@ if (form) {
     } catch (err) {
       alert("Network error. Please try again later.");
     } finally {
-      if (redirected) return; // ✅ add this
+      if (redirected) return;
 
       form.classList.remove("is-submitting");
       if (btn) {
         btn.disabled = false;
-        btn.textContent = "Send message";
+        btn.textContent = originalBtnText || "Send message";
         btn.classList.remove("is-loading");
         btn.removeAttribute("aria-busy");
-          }
+      }
+    }
   });
-}  // closes if (form)
-
-}); // closes DOMContentLoaded
+});
