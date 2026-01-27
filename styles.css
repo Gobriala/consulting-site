@@ -496,7 +496,7 @@ body.is-entering.is-visible { opacity: 1; }
 .coming-cta-linkedin{
   display: inline-flex;
   align-items: center;
-  gap: 6px; /* smaller controlled gap */
+  gap: 2px; /* smaller controlled gap */
 }
 
 /* Remove weird inline image spacing */
