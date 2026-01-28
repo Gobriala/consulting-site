@@ -457,9 +457,15 @@ body.coming-soon-page{
     margin-top: 195px; /* increase/decrease as needed */
   }
 
-  /* Keep buttons higher on mobile LANDSCAPE */
+ /* MOBILE LANDSCAPE — keep content near top instead of centered */
 @media (max-width: 600px) and (orientation: landscape){
+
+  .coming-soon-content{
+    justify-content: flex-start;   /* stop vertical centering */
+    padding-top: 40px;             /* space from top edge */
+  }
+
   .coming-cta-row{
-    margin-top: 12px; /* bring buttons back up */
+    margin-top: 20px;              /* tighten gap above buttons */
   }
 }
