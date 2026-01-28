@@ -90,5 +90,17 @@
   });
 </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const vid = document.getElementById("csVideo");
+    if (!vid) return;
+
+    vid.addEventListener("ended", () => {
+      vid.currentTime = 0;
+      vid.play().catch(() => {});
+    });
+  });
+</script>
+
 </body>
 </html>
