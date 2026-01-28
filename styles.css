@@ -309,7 +309,7 @@ body.is-entering.is-visible{ opacity:1; }
   display:flex;
   align-items:center;
   justify-content:center;
-  padding: 40px 20px 70px;
+  padding: 40px 20px 24px;
 }
 
 /* Centered wrapper; footer pushed to bottom */
@@ -483,8 +483,8 @@ body.is-entering.is-visible{ opacity:1; }
 /* Footer pinned to bottom with padding */
 .coming-footer{
   margin-top: auto;
-  padding-top: 80px;     /* more space above */
-  padding-bottom: 60px;  /* pushes closer to bottom edge */
+  padding-top: 24px;     /* small breathing room above */
+  padding-bottom: 24px;  /* not on the edge, but low */
   color: rgba(255,255,255,0.75);
   font-weight: 700;
 }
