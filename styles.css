@@ -310,17 +310,19 @@ body.coming-soon-page{
   justify-content: center;
 }
 
+/* Tooltip BELOW the LinkedIn button */
 .li-tooltip{
   position: absolute;
   left: 50%;
-  top: calc(100% + 12px);
-  transform: translateX(-50%) translateY(-6px) scale(.98);
+  top: calc(100% + 14px);
+  transform: translateX(-50%) translateY(-6px) scale(.96);
 
-  background: rgba(17,17,17,0.95);
+  background: linear-gradient(145deg, #111, #1c1c1c);
   color: #fff;
   font-size: 0.9rem;
-  padding: 10px 12px;
-  border-radius: 12px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 14px;
   white-space: nowrap;
 
   opacity: 0;
@@ -328,10 +330,12 @@ body.coming-soon-page{
   pointer-events: none;
   z-index: 9999;
 
+  box-shadow: 0 10px 26px rgba(0,0,0,0.35);
   transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms;
   transition-delay: 350ms;
 }
 
+/* Arrow pointing up toward button */
 .li-tooltip::before{
   content:"";
   position:absolute;
@@ -339,10 +343,11 @@ body.coming-soon-page{
   left:50%;
   transform: translateX(-50%);
   border: 8px solid transparent;
-  border-bottom-color: rgba(17,17,17,0.95);
+  border-bottom-color: #151515;
 }
 
-.li-tooltip .li-verified-dot{
+/* Blue verified dot */
+.li-verified-dot{
   width: 10px;
   height: 10px;
   border-radius: 999px;
@@ -352,12 +357,13 @@ body.coming-soon-page{
   flex-shrink: 0;
 }
 
+/* Show on hover/focus with delay */
 .li-tooltip-wrap:hover .li-tooltip,
 .li-tooltip-wrap:focus-within .li-tooltip{
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0) scale(1);
-  transition-delay: 600ms; /* longer on hover */
+  transition-delay: 650ms;
 }
 
 /* No tooltip on touch devices */
