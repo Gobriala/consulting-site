@@ -402,3 +402,10 @@ body.coming-soon-page{
     transition: none;
   }
 }
+
+/* Move CTA buttons lower on mobile to reveal more skyline */
+@media (max-width: 600px){
+  .coming-cta-row{
+    margin-top: 28px;   /* pushes buttons down */
+  }
+}
