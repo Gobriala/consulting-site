@@ -288,7 +288,7 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
 /* Buttons on dark background */
 .coming-cta{
   background: #ffffff;
-  color: #061;
+  color: #111;
   font-weight: 700;
   padding: 14px 26px;
   border-radius: 10px;
@@ -391,4 +391,25 @@ a:focus, button:focus { outline:3px solid #ffd54f; outline-offset:3px; }
   display: inline-flex;
   align-items: center;
   gap: 6px; /* controls space between "Connect on" and logo */
+}
+
+/* ===== LinkedIn Coming Soon Button Text Fix ===== */
+.coming-cta-linkedin .li-text{
+  color: #0A66C2; /* LinkedIn blue */
+  font-weight: 700;
+}
+
+/* Make sure logo spacing is tight */
+.coming-cta-linkedin{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* space between text and logo */
+}
+
+/* Ensure both buttons share same sizing behavior */
+.coming-cta{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px; /* keeps buttons same height */
 }
