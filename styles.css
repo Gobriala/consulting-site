@@ -315,8 +315,9 @@ body.is-entering.is-visible{ opacity:1; }
   text-align:center;
   display:flex;
   flex-direction:column;
-  min-height: calc(100vh - 110px); /* respects overlay padding */
+  min-height: calc(100vh - 110px);
   justify-content:center;
+  padding-top: 80px;   /* pushes headline down */
 }
 
 /* Pill */
@@ -477,9 +478,9 @@ body.is-entering.is-visible{ opacity:1; }
 
 /* Footer pinned to bottom with padding */
 .coming-footer{
-  margin-top: auto;                /* pushes to bottom within flex column */
-  padding-top: 40px;
-  padding-bottom: 18px;            /* breathing room above browser edge */
+  margin-top: auto;
+  padding-top: 60px;     /* more space above it */
+  padding-bottom: 40px;  /* moves it closer to screen bottom */
   color: rgba(255,255,255,0.75);
   font-weight: 700;
 }
