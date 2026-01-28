@@ -10,62 +10,53 @@
 <body class="coming-soon-page">
 
   <main class="coming-soon-hero">
-    <video autoplay muted loop playsinline poster="images/coming-soon.jpg">
-      <source src="video/coming-soon-1.mp4" type="video/mp4">
-    </video>
+  <video autoplay muted loop playsinline poster="images/coming-soon.jpg">
+    <source src="video/coming-soon-1.mp4" type="video/mp4">
+  </video>
 
-    <!-- Overlay layer on top of video -->
-    <div class="coming-soon-overlay">
-      <!-- Centered max-width wrapper -->
-      <div class="coming-soon-wrap">
+  <div class="coming-soon-content">
 
-        <div class="coming-pill">
-          <span class="pill-dot" aria-hidden="true"></span>
-          <span>Work in progress — coming soon</span>
-        </div>
-
-        <h1 class="coming-title">Big updates are on the way.</h1>
-
-        <p class="coming-subtitle">
-          I’m refreshing this site with new work, sharper storytelling, and a few thoughtful upgrades.
-          <br>
-          If you’re here from LinkedIn — welcome 👋
-        </p>
-
-        <div class="coming-cta-row">
-
-  <div class="li-tooltip-wrap">
-     <a class="cta coming-cta coming-cta-linkedin"
-     href="https://www.linkedin.com/in/anthony-gobrial/"
-     target="_blank"
-     rel="noopener"
-     aria-describedby="li-verified-tip">
-
-    <span class="li-text">Connect on</span>
-
-    <img src="images/linkedin-logo.png"
-         alt="LinkedIn"
-         class="li-wordmark">
-
-  </a>
-
-  <div class="li-tooltip" id="li-verified-tip" role="tooltip">
-    <span class="li-verified-dot"></span>
-    Verified profile
-  </div>
-
-</div>
-
-          <a class="cta coming-cta" href="mailto:YOUR_EMAIL_HERE">
-            Email me
-          </a>
-        </div>
-
-        <p class="coming-footer">© 2026 Anthony Gobrial</p>
-
-      </div>
+    <div class="wip-pill">
+      <span class="dot" aria-hidden="true"></span>
+      <span>Work in progress — coming soon</span>
     </div>
-  </main>
+
+    <h1 class="coming-title">Big updates are on the way.</h1>
+
+    <p class="coming-subtitle">
+      I’m refreshing this site with new work, sharper storytelling, and a few thoughtful upgrades.
+      <br>
+      If you’re here from LinkedIn — welcome 👋
+    </p>
+
+    <div class="coming-cta-row">
+
+      <!-- LinkedIn CTA + tooltip wrapper -->
+      <div class="li-tooltip-wrap">
+        <a class="cta coming-cta coming-cta-linkedin"
+           href="https://www.linkedin.com/in/anthony-gobrial/"
+           target="_blank"
+           rel="noopener"
+           aria-describedby="li-verified-tip">
+
+          <span class="li-text">Connect on</span>
+          <img src="images/linkedin-logo.png" alt="LinkedIn" class="li-wordmark">
+        </a>
+
+        <div class="li-tooltip" id="li-verified-tip" role="tooltip">
+          <span class="li-verified-dot" aria-hidden="true"></span>
+          Verified profile
+        </div>
+      </div>
+
+      <!-- Email CTA -->
+      <a class="cta coming-cta" href="mailto:gobrial.consulting@gmail.com">Email me</a>
+    </div>
+
+    <p class="coming-footer">© 2026 Anthony Gobrial</p>
+
+  </div>
+</main>
 
   <script>
     // Optional: add a class once video can play (only if you use it in CSS)

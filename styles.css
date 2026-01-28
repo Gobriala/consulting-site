@@ -1,36 +1,62 @@
-/* =========================================================
-   Base / Global
-   ========================================================= */
-*{
-  box-sizing:border-box;
-  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-}
+/* =========================
+   styles.css — CLEAN MASTER
+   ========================= */
+
+/* Global reset + base */
+*{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
 body{margin:0;color:#111;background:#f7f7f8;line-height:1.6;}
 .container{max-width:1100px;margin:0 auto;padding:2rem;}
 
-/* =========================================================
-   Header / Nav / Layout
-   ========================================================= */
+/* Site header */
 .site-header{
-  height:420px;
-  background-image:linear-gradient(rgba(6,10,15,0.55), rgba(6,10,15,0.35)), url("photos/header-hero.jpg");
-  background-size:cover;
-  background-position:center;
+  height: 420px;
+  background-image: linear-gradient(rgba(6,10,15,0.55), rgba(6,10,15,0.35)), url("photos/header-hero.jpg");
+  background-size: cover;
+  background-position: center;
   display:flex;
   align-items:center;
   justify-content:center;
   color:#fff;
   text-align:center;
 }
-.header-overlay{padding:2.5rem 1.25rem;max-width:720px;}
-.header-overlay h1{
-  font-size:clamp(2rem, 4vw, 3rem);
-  margin:0 0 0.75rem 0;
-  line-height:1.1;
-  letter-spacing:-0.5px;
-}
-.header-overlay p{margin:0 0 1.5rem;font-size:1.1rem;opacity:0.9;}
 
+.header-overlay{
+  padding: 2.5rem 1.25rem;
+  max-width: 720px;
+}
+
+.header-overlay h1{
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 0.75rem 0;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.header-overlay p{
+  margin: 0 0 1.5rem;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* CTA (default site buttons) */
+.cta{
+  display:inline-block;
+  padding:.8rem 1.4rem;
+  border-radius: 6px;
+  background:#fff;
+  color:#061;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 6px 18px rgba(0,0,0,0.15);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.cta:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.2);
+}
+
+/* Nav */
 .nav{
   background:#fff;
   box-shadow:0 2px 8px rgba(0,0,0,0.05);
@@ -40,36 +66,19 @@ body{margin:0;color:#111;background:#f7f7f8;line-height:1.6;}
   display:flex;
   align-items:center;
 }
-.nav ul{
-  display:flex;
-  gap:1rem;
-  list-style:none;
-  padding:.6rem 2rem;
-  margin:0;
-  align-items:center;
-  width:100%;
-}
+.nav ul{display:flex;gap:1rem;list-style:none;padding:.6rem 2rem;margin:0;align-items:center;width:100%;}
 .nav a{color:#111;text-decoration:none;padding:.4rem .6rem;border-radius:4px;}
 
+/* Sections */
 .section{padding:3.5rem 0;}
 .section.alt{background:#fff;}
 .cards{display:flex;gap:1rem;flex-wrap:wrap;}
-.card{
-  background:#fff;
-  padding:1.2rem;
-  border-radius:10px;
-  flex:1;
-  min-width:220px;
-  box-shadow:0 6px 18px rgba(12,18,30,0.06);
-}
+.card{background:#fff;padding:1.2rem;border-radius:10px;flex:1;min-width:220px;box-shadow:0 6px 18px rgba(12,18,30,0.06);}
 .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;}
-.portfolio-item{
-  background:#fff;
-  padding:1rem;
-  border-radius:8px;
-  box-shadow:0 6px 18px rgba(12,18,30,0.04);
-}
+.portfolio-item{background:#fff;padding:1rem;border-radius:8px;box-shadow:0 6px 18px rgba(12,18,30,0.04);}
 .portfolio-item img{width:100%;height:160px;object-fit:cover;border-radius:6px;}
+
+/* Footer */
 .site-footer{
   padding:2rem 0;
   text-align:center;
@@ -79,38 +88,12 @@ body{margin:0;color:#111;background:#f7f7f8;line-height:1.6;}
   border-top:1px solid rgba(0,0,0,0.04);
 }
 
-/* =========================================================
-   CTA Button (base)
-   ========================================================= */
-.cta{
-  display:inline-block;
-  padding:.8rem 1.4rem;
-  border-radius:10px;
-  background:#fff;
-  color:#061;
-  text-decoration:none;
-  font-weight:700;
-  box-shadow:0 6px 18px rgba(0,0,0,0.15);
-  transition:transform .15s ease, box-shadow .15s ease, background-color 160ms ease;
-}
-.cta:hover{
-  transform:translateY(-2px);
-  box-shadow:0 10px 22px rgba(0,0,0,0.2);
-}
-
-/* =========================================================
-   Accessibility
-   ========================================================= */
-a:focus, button:focus{outline:3px solid #ffd54f;outline-offset:3px;}
+/* Accessibility */
+a:focus, button:focus{outline:3px solid #ffd54f; outline-offset:3px;}
 .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
-.skip-link:focus{
-  left:10px;top:10px;width:auto;height:auto;
-  background:#000;color:#fff;padding:.5rem 1rem;border-radius:4px;z-index:9999;
-}
+.skip-link:focus{left:10px;top:10px;width:auto;height:auto;background:#000;color:#fff;padding:.5rem 1rem;border-radius:4px;z-index:9999;}
 
-/* =========================================================
-   Mobile Nav
-   ========================================================= */
+/* Mobile nav */
 #nav-toggle{display:none;background:transparent;border:0;font-size:1.3rem;padding:.6rem 1rem;margin-left:1rem;}
 @media (max-width:900px){
   #nav-toggle{display:inline-block;}
@@ -125,20 +108,12 @@ a:focus, button:focus{outline:3px solid #ffd54f;outline-offset:3px;}
   .header-overlay h1{font-size:1.9rem;}
 }
 
-/* =========================================================
-   Modal
-   ========================================================= */
+/* Modal (if used on main site) */
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);padding:1rem;z-index:10000;}
-.modal-inner{
-  background:#fff;max-width:780px;width:100%;
-  padding:1.5rem;border-radius:8px;margin:5vh auto;position:relative;
-  box-shadow:0 12px 40px rgba(2,7,23,0.5);
-}
+.modal-inner{background:#fff;max-width:780px;width:100%;padding:1.5rem;border-radius:8px;margin:5vh auto;position:relative;box-shadow:0 12px 40px rgba(2,7,23,0.5);}
 .modal-close{position:absolute;right:1rem;top:1rem;background:transparent;border:0;font-size:1.8rem;}
 
-/* =========================================================
-   Contact form
-   ========================================================= */
+/* Contact form (main site) */
 .contact-intro{max-width:720px;margin:0 0 1.2rem;}
 .contact-form{max-width:720px;}
 .form-row{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem;}
@@ -156,173 +131,268 @@ a:focus, button:focus{outline:3px solid #ffd54f;outline-offset:3px;}
 .hp-field{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
 
 /* Form submit UX */
-.contact-form.is-submitting{opacity:0.75;transform:translateY(2px);pointer-events:none;}
-#submitBtn.is-loading{opacity:0.85;cursor:progress;}
+.contact-form.is-submitting{
+  opacity:0.75;
+  transform: translateY(2px);
+  pointer-events:none;
+}
+#submitBtn.is-loading{
+  opacity:0.85;
+  cursor:progress;
+}
 
-/* =========================================================
-   Page fade (used by contact form redirect + thank you load)
-   ========================================================= */
-body{transition:opacity 700ms ease;}
+/* Reduced motion (global safety) */
+@media (prefers-reduced-motion: reduce){
+  *{scroll-behavior:auto!important;transition:none!important;animation:none!important;}
+}
+
+/* Page fade before redirect (used on main site forms) */
+body{transition: opacity 700ms ease;}
 body.is-leaving{opacity:0;}
 body.is-entering{opacity:0;}
 body.is-entering.is-visible{opacity:1;}
-@media (prefers-reduced-motion: reduce){
-  *{scroll-behavior:auto!important;transition:none!important;animation:none!important;}
-  body{transition:none;}
-}
 
-/* =========================================================
-   Coming Soon Page (matches your current coming-soon.html)
-   ========================================================= */
+/* ============================================
+   COMING SOON — VIDEO HERO + CTA (CLEAN)
+   ============================================ */
 
-/* Fullscreen hero with background video */
-.coming-soon-hero{
-  position:relative;
-  min-height:100vh;
-  overflow:hidden;
-}
-
-/* Make the video cover the whole screen */
-.coming-soon-hero > video{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  /* If your background feels too dark, reduce these two values */
-  filter:brightness(0.82) contrast(1.08);
-}
-
-/* Overlay sits above the video */
-.coming-soon-overlay{
-  position:relative;
-  z-index:2;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center; /* keeps the block in its original centered position */
-  text-align:center;
-  padding:40px 20px 110px; /* bottom padding reserves space so footer can sit lower */
+body.coming-soon-page{
+  background:#000;
   color:#fff;
 }
 
-/* Dark overlay for readability */
-.coming-soon-overlay::before{
+/* Fullscreen hero wrapper */
+.coming-soon-hero{
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+}
+
+/* Video background */
+.coming-soon-hero > video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.90) contrast(1.05);
+}
+
+/* Overlay for readability */
+.coming-soon-hero::after{
   content:"";
   position:absolute;
   inset:0;
-  z-index:-1;
-  background:linear-gradient(rgba(0,0,0,0.40), rgba(0,0,0,0.58));
+  background: radial-gradient(1200px 700px at 50% 18%, rgba(0,0,0,0.32), rgba(0,0,0,0.58));
+  pointer-events:none;
 }
 
-/* Centered content wrapper */
-.coming-soon-wrap{
-  max-width:980px;
-  margin:0 auto;
+/* Content layer: center text, footer pinned lower */
+.coming-soon-content{
+  position: relative;
+  z-index: 1;
+  width: min(1100px, 100%);
+  margin: 0 auto;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  padding: 92px 24px 24px;
 }
 
-/* “Work in progress” pill */
-.coming-pill{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 16px;
-  border-radius:999px;
-  background:rgba(255,255,255,0.12);
-  border:1px solid rgba(255,255,255,0.18);
-  color:rgba(255,255,255,0.92);
-  font-weight:700;
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  margin:0 auto 22px auto;
+/* WIP pill */
+.wip-pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.92);
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  margin-bottom: 22px;
 }
-.pill-dot{
-  width:10px;height:10px;border-radius:999px;
-  background:#0A66C2;
-  box-shadow:0 0 0 6px rgba(10,102,194,0.18);
+.wip-pill .dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #0A66C2;
+  box-shadow: 0 0 0 6px rgba(10,102,194,0.18);
 }
 
+/* Headline + subtitle */
 .coming-title{
-  font-size:clamp(2.5rem, 6vw, 5rem);
-  line-height:1.05;
-  margin:0 0 18px 0;
-  letter-spacing:-0.02em;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  line-height: 1.05;
+  margin: 0 0 18px 0;
+  letter-spacing: -0.02em;
 }
+
 .coming-subtitle{
-  font-size:clamp(1.05rem, 2.2vw, 1.6rem);
-  line-height:1.4;
-  margin:0 auto 32px auto;
-  max-width:980px;
-  color:rgba(255,255,255,0.92);
+  font-size: clamp(1.05rem, 2.2vw, 1.6rem);
+  line-height: 1.4;
+  margin: 0 auto 32px auto;
+  max-width: 980px;
+  color: rgba(255,255,255,0.92);
 }
 
 /* CTA row */
 .coming-cta-row{
   display:flex;
   justify-content:center;
-  gap:20px;
-  margin:0;
-  flex-wrap:wrap;
+  gap: 22px;
+  flex-wrap: wrap;
 }
 
-/* Shared “coming” button sizing (fixes Email button shape mismatch) */
+/* CTA button base (same shape for both) */
 .coming-cta{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:14px;
-  padding:18px 28px;
-  min-height:72px;
-  border-radius:18px;
-  box-shadow:0 10px 26px rgba(0,0,0,0.22);
+
   background:#fff;
-  font-weight:800;
+  border-radius: 20px;
+  padding: 18px 28px;
+  min-height: 68px;
+
+  font-weight: 800;
   text-decoration:none;
-  white-space:nowrap;
-}
-.coming-cta:hover{
-  transform:translateY(-2px);
-  box-shadow:0 14px 30px rgba(0,0,0,0.28);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.28);
+  transition: transform 140ms ease, box-shadow 140ms ease;
 }
 
-/* Email button text color */
-.coming-cta-row .coming-cta:not(.coming-cta-linkedin){
+.coming-cta:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.32);
+}
+.coming-cta:active{
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.24);
+}
+
+/* Email text = black */
+.coming-cta:not(.coming-cta-linkedin){
   color:#111;
 }
 
-/* LinkedIn wordmark CTA (your current HTML uses .li-text + .li-wordmark) */
-.coming-cta-linkedin{gap:14px;}
+/* LinkedIn CTA: text blue + wordmark image */
+.coming-cta-linkedin{
+  gap: 14px;        /* ONLY spacing between text and logo */
+  white-space: nowrap;
+}
+
 .coming-cta-linkedin .li-text{
-  color:#0A66C2; /* LinkedIn blue for “Connect on” */
-  font-weight:900;
+  color:#0A66C2;    /* LinkedIn blue */
+  font-size: 1.35rem;
+  line-height: 1;
 }
+
 .coming-cta-linkedin .li-wordmark{
-  display:block;
-  height:26px;   /* adjust if needed */
-  width:auto;
-  margin:0;
+  display:block;    /* avoids inline/baseline weirdness */
+  height: 26px;
+  width: auto;
+  margin: 0;
 }
 
-/* Mobile stacking */
-@media (max-width:600px){
-  .coming-cta-row{
-    flex-direction:column;
-    align-items:stretch;
-    gap:14px;
-    width:min(520px, 92vw);
-    margin:0 auto;
-  }
-  .coming-cta{
-    width:100%;
-  }
+/* Tooltip BELOW the LinkedIn button (hidden by default) */
+.li-tooltip-wrap{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Footer pinned lower */
+.li-tooltip{
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 12px);
+  transform: translateX(-50%) translateY(-6px) scale(.98);
+
+  background: rgba(17,17,17,0.95);
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 10px 12px;
+  border-radius: 12px;
+  white-space: nowrap;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 9999;
+
+  transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms;
+  transition-delay: 350ms;
+}
+
+.li-tooltip::before{
+  content:"";
+  position:absolute;
+  bottom:100%;
+  left:50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-bottom-color: rgba(17,17,17,0.95);
+}
+
+.li-tooltip .li-verified-dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #0A66C2;
+  box-shadow: 0 0 0 3px rgba(10,102,194,0.25);
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.li-tooltip-wrap:hover .li-tooltip,
+.li-tooltip-wrap:focus-within .li-tooltip{
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0) scale(1);
+  transition-delay: 600ms; /* longer on hover */
+}
+
+/* No tooltip on touch devices */
+@media (hover: none){
+  .li-tooltip{ display:none; }
+}
+
+/* Footer pinned to bottom with padding */
 .coming-footer{
-  margin-top:auto; /* pushes footer down within overlay */
-  padding-top:26px;
-  padding-bottom:22px; /* breathing room from bottom edge */
-  color:rgba(255,255,255,0.78);
-  font-weight:700;
+  margin-top: auto;
+  padding-top: 36px;
+  padding-bottom: 22px;
+  color: rgba(255,255,255,0.78);
+  font-weight: 700;
+}
+
+/* Mobile: stack buttons full width */
+@media (max-width: 600px){
+  .coming-soon-content{ padding: 76px 18px 18px; }
+
+  .coming-cta-row{
+    width: 100%;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .coming-cta{
+    width: 100%;
+  }
+}
+
+/* Coming soon: reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .coming-cta,
+  .li-tooltip{
+    transition: none;
+  }
 }
