@@ -321,7 +321,7 @@ body.is-entering.is-visible{ opacity:1; }
   flex-direction:column;
   min-height: calc(100vh - 110px);
   justify-content:center;
-  padding-top: 80px;   /* pushes headline down */
+  padding-top: 0px;   /* pushes headline down */
 }
 
 /* Pill */
