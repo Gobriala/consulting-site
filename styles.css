@@ -336,19 +336,6 @@ body.coming-soon-page{
   pointer-events:none;
 }
 
-/* Fallback image layer — hidden by default */
-.coming-soon-fallback{
-  position: absolute;
-  inset: 0;
-  background: url("images/coming-soon.jpg") center/cover no-repeat;
-  display: none;
-}
-
-/* Only allow fallback to appear on mobile */
-@media (max-width: 600px){
-  body.cs-video-failed .coming-soon-fallback{ display:block; }
-  body.cs-video-failed .coming-soon-bg video{ display:none; }
-}
 
 /* Tooltip BELOW the LinkedIn button (hidden by default) */
 .li-tooltip-wrap{
@@ -467,5 +454,12 @@ body.coming-soon-page{
 
   .coming-cta-row{
     margin-top: 20px;              /* tighten gap above buttons */
+  }
+}
+/* Portrait only — make copyright more subtle */
+@media (max-width: 600px) and (orientation: portrait){
+  .coming-footer{
+    font-size: 0.8rem;
+    opacity: 0.75;
   }
 }

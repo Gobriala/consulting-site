@@ -15,8 +15,7 @@
       <source src="video/coming-soon-1.mp4" type="video/mp4">
     </video>
     
-     <div class="coming-soon-fallback" aria-hidden="true"></div>
-  </div>
+    </div>
 
   <div class="coming-soon-content">
 
@@ -63,34 +62,6 @@
 </main>
 
   <script>
-  document.addEventListener("DOMContentLoaded", async () => {
-    const vid = document.getElementById("csVideo");
-    if (!vid) return;
-
-    // Only care about fallback on small screens
-    const isMobile = window.matchMedia("(max-width: 600px)").matches;
-    if (!isMobile) return;
-
-    const fail = () => document.body.classList.add("cs-video-failed");
-
-    // If the file can't load / decode
-    vid.addEventListener("error", fail, { once: true });
-    vid.addEventListener("stalled", fail, { once: true });
-    vid.addEventListener("abort", fail, { once: true });
-
-    // Try to autoplay — if blocked or fails, show fallback
-    try {
-      const p = vid.play();
-      if (p && typeof p.catch === "function") {
-        p.catch(fail);
-      }
-    } catch (e) {
-      fail();
-    }
-  });
-</script>
-
-<script>
   document.addEventListener("DOMContentLoaded", () => {
     const vid = document.getElementById("csVideo");
     if (!vid) return;
