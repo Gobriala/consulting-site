@@ -275,6 +275,10 @@ body.is-entering.is-visible{ opacity:1; }
 .coming-soon-hero{
   position: relative;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;   /* allow footer to sit lower */
+  padding: 40px 20px 40px; /* reduce bottom padding */
   overflow: hidden;
 }
 
