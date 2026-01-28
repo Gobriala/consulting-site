@@ -462,7 +462,7 @@ body.coming-soon-page{
 
   .coming-soon-content{
     justify-content: flex-start;   /* stop vertical centering */
-    padding-top: 40px;             /* space from top edge */
+    padding-top: 24px;             /* space from top edge */
   }
 
   .coming-cta-row{
