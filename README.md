@@ -1,31 +1,68 @@
-# Anthony Gobrial — Portfolio & Consulting Site (Work in Progress)
+# Anthony Gobrial — Digital Portfolio & Consulting Site
 
-🚧 **This site is currently in development.**
+🚧 **Work in Progress**  
+The live site currently displays a “Coming Soon” page while the full portfolio experience is being finalized.
 
-This repository contains my in-progress portfolio and consulting site. It demonstrates my approach to web delivery, UX structure, responsive layout, and deployment via GitHub Pages.
+This repository contains the in-development build of my professional portfolio and consulting website. It highlights my approach to digital production, UX-driven structure, and modern web delivery workflows.
 
-The live site currently displays a “Coming Soon” page while the full experience is being finalized.
+---
 
-This project reflects how I approach:
-- Content structure and UX hierarchy  
-- Responsive front-end layout  
-- Modern deployment workflows  
-- Professional presentation of digital work  
+## 🔍 Project Purpose
 
-More updates coming soon.
+This site is being built to showcase:
 
-# Consulting Site (Public Portfolio)
+- End-to-end digital project delivery  
+- UX-led content structure and hierarchy  
+- Responsive front-end implementation  
+- Deployment and version control using GitHub Pages  
+- Professional presentation of digital and marketing work  
 
-This repo contains the public-facing version of my portfolio/consulting site.
+It reflects how I manage structured, scalable web experiences — the same approach I bring to healthcare, life sciences, and regulated digital environments.
 
-## Local preview
-Open `index.html` in your browser.
+---
 
-## Deploy (GitHub Pages)
-1. Repo Settings → Pages
-2. Deploy from branch: `main` / folder: `/(root)`
-3. Your site will publish at: `https://YOUR-USERNAME.github.io/consulting-site`
+## 🛠 Tech & Workflow
 
-## Notes
-- Replace images in `/photos` with your own photos.
-- Update contact links in `index.html`.
+- HTML5 / CSS3  
+- Responsive layout principles  
+- GitHub for version control  
+- GitHub Pages for deployment  
+- Iterative build approach (design → structure → polish)
+
+---
+
+## 🌐 Deployment
+
+This site is deployed via **GitHub Pages**.
+
+**Live URL (temporary landing page):**  
+👉 https://anthonygobrial.com  
+
+The full site will replace the current placeholder once development is complete.
+
+---
+
+## 📌 Status
+
+Current phase:
+- Visual structure finalized  
+- Background video landing experience implemented  
+- Full portfolio content and case studies in progress  
+
+---
+
+## 👤 About Me
+
+I’m a **Digital Producer & Web Project Manager** specializing in:
+
+- UX-focused web delivery  
+- Healthcare & life sciences digital ecosystems  
+- Cross-functional collaboration (creative, dev, marketing, compliance)  
+- Turning complex content into structured, user-friendly digital experiences  
+
+📎 Connect with me on LinkedIn:  
+https://www.linkedin.com/in/anthony-gobrial/
+
+---
+
+*More updates coming soon.*
