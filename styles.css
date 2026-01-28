@@ -479,8 +479,8 @@ body.is-entering.is-visible{ opacity:1; }
 /* Footer pinned to bottom with padding */
 .coming-footer{
   margin-top: auto;
-  padding-top: 60px;     /* more space above it */
-  padding-bottom: 40px;  /* moves it closer to screen bottom */
+  padding-top: 80px;     /* more space above */
+  padding-bottom: 60px;  /* pushes closer to bottom edge */
   color: rgba(255,255,255,0.75);
   font-weight: 700;
 }
