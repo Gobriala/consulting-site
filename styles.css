@@ -1,74 +1,36 @@
-/* =========================
+/* =========================================================
    Base / Global
-========================= */
+   ========================================================= */
 *{
   box-sizing:border-box;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
-body{
-  margin:0;
-  color:#111;
-  background:#f7f7f8;
-  line-height:1.6;
-}
-.container{
-  max-width:1100px;
-  margin:0 auto;
-  padding:2rem;
-}
+body{margin:0;color:#111;background:#f7f7f8;line-height:1.6;}
+.container{max-width:1100px;margin:0 auto;padding:2rem;}
 
-/* =========================
-   Hero/Header (main site)
-========================= */
+/* =========================================================
+   Header / Nav / Layout
+   ========================================================= */
 .site-header{
-  height: 420px;
-  background-image: linear-gradient(rgba(6,10,15,0.55), rgba(6,10,15,0.35)), url("photos/header-hero.jpg");
-  background-size: cover;
-  background-position: center;
+  height:420px;
+  background-image:linear-gradient(rgba(6,10,15,0.55), rgba(6,10,15,0.35)), url("photos/header-hero.jpg");
+  background-size:cover;
+  background-position:center;
   display:flex;
   align-items:center;
   justify-content:center;
   color:#fff;
   text-align:center;
 }
-.header-overlay{
-  padding: 2.5rem 1.25rem;
-  max-width: 720px;
-}
+.header-overlay{padding:2.5rem 1.25rem;max-width:720px;}
 .header-overlay h1{
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin: 0 0 0.75rem 0;
-  line-height: 1.1;
-  letter-spacing: -0.5px;
+  font-size:clamp(2rem, 4vw, 3rem);
+  margin:0 0 0.75rem 0;
+  line-height:1.1;
+  letter-spacing:-0.5px;
 }
-.header-overlay p{
-  margin: 0 0 1.5rem;
-  font-size: 1.1rem;
-  opacity: 0.9;
-}
+.header-overlay p{margin:0 0 1.5rem;font-size:1.1rem;opacity:0.9;}
 
-/* =========================
-   Buttons (global)
-========================= */
-.cta{
-  display:inline-block;
-  padding:.8rem 1.4rem;
-  border-radius: 10px;
-  background:#fff;
-  color:#061;
-  text-decoration:none;
-  font-weight:600;
-  box-shadow:0 6px 18px rgba(0,0,0,0.15);
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-.cta:hover{
-  transform: translateY(-2px);
-  box-shadow:0 10px 22px rgba(0,0,0,0.2);
-}
-
-/* =========================
-   Nav / Layout
-========================= */
 .nav{
   background:#fff;
   box-shadow:0 2px 8px rgba(0,0,0,0.05);
@@ -87,15 +49,11 @@ body{
   align-items:center;
   width:100%;
 }
-.nav a{
-  color:#111;
-  text-decoration:none;
-  padding:.4rem .6rem;
-  border-radius:4px;
-}
-.section{ padding:3.5rem 0; }
-.section.alt{ background:#fff; }
-.cards{ display:flex; gap:1rem; flex-wrap:wrap; }
+.nav a{color:#111;text-decoration:none;padding:.4rem .6rem;border-radius:4px;}
+
+.section{padding:3.5rem 0;}
+.section.alt{background:#fff;}
+.cards{display:flex;gap:1rem;flex-wrap:wrap;}
 .card{
   background:#fff;
   padding:1.2rem;
@@ -104,23 +62,14 @@ body{
   min-width:220px;
   box-shadow:0 6px 18px rgba(12,18,30,0.06);
 }
-.portfolio-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-  gap:1rem;
-}
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;}
 .portfolio-item{
   background:#fff;
   padding:1rem;
   border-radius:8px;
   box-shadow:0 6px 18px rgba(12,18,30,0.04);
 }
-.portfolio-item img{
-  width:100%;
-  height:160px;
-  object-fit:cover;
-  border-radius:6px;
-}
+.portfolio-item img{width:100%;height:160px;object-fit:cover;border-radius:6px;}
 .site-footer{
   padding:2rem 0;
   text-align:center;
@@ -130,104 +79,70 @@ body{
   border-top:1px solid rgba(0,0,0,0.04);
 }
 
-/* =========================
-   Accessibility
-========================= */
-a:focus, button:focus{
-  outline:3px solid #ffd54f;
-  outline-offset:3px;
+/* =========================================================
+   CTA Button (base)
+   ========================================================= */
+.cta{
+  display:inline-block;
+  padding:.8rem 1.4rem;
+  border-radius:10px;
+  background:#fff;
+  color:#061;
+  text-decoration:none;
+  font-weight:700;
+  box-shadow:0 6px 18px rgba(0,0,0,0.15);
+  transition:transform .15s ease, box-shadow .15s ease, background-color 160ms ease;
 }
-.skip-link{
-  position:absolute;
-  left:-9999px;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
-}
-.skip-link:focus{
-  left:10px;
-  top:10px;
-  width:auto;
-  height:auto;
-  background:#000;
-  color:#fff;
-  padding:.5rem 1rem;
-  border-radius:4px;
-  z-index:9999;
+.cta:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 22px rgba(0,0,0,0.2);
 }
 
-/* =========================
-   Mobile Nav
-========================= */
-#nav-toggle{
-  display:none;
-  background:transparent;
-  border:0;
-  font-size:1.3rem;
-  padding:.6rem 1rem;
-  margin-left:1rem;
+/* =========================================================
+   Accessibility
+   ========================================================= */
+a:focus, button:focus{outline:3px solid #ffd54f;outline-offset:3px;}
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+.skip-link:focus{
+  left:10px;top:10px;width:auto;height:auto;
+  background:#000;color:#fff;padding:.5rem 1rem;border-radius:4px;z-index:9999;
 }
+
+/* =========================================================
+   Mobile Nav
+   ========================================================= */
+#nav-toggle{display:none;background:transparent;border:0;font-size:1.3rem;padding:.6rem 1rem;margin-left:1rem;}
 @media (max-width:900px){
-  #nav-toggle{ display:inline-block; }
-  .nav ul{
-    display:none;
-    flex-direction:column;
-    gap:.4rem;
-    padding:.6rem 1rem;
-  }
-  .nav ul a{ display:block; width:100%; }
-  .header-overlay h1{ font-size:1.6rem; }
-  .header-overlay p{ font-size:.95rem; }
-  .site-header{ height:420px; }
+  #nav-toggle{display:inline-block;}
+  .nav ul{display:none;flex-direction:column;gap:.4rem;padding:.6rem 1rem;}
+  .nav ul a{display:block;width:100%;}
+  .header-overlay h1{font-size:1.6rem;}
+  .header-overlay p{font-size:.95rem;}
+  .site-header{height:420px;}
 }
 @media (min-width:701px) and (max-width:1100px){
-  .site-header{ height:480px; }
-  .header-overlay h1{ font-size:1.9rem; }
+  .site-header{height:480px;}
+  .header-overlay h1{font-size:1.9rem;}
 }
 
-/* =========================
+/* =========================================================
    Modal
-========================= */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.6);
-  padding:1rem;
-  z-index:10000;
-}
+   ========================================================= */
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);padding:1rem;z-index:10000;}
 .modal-inner{
-  background:#fff;
-  max-width:780px;
-  width:100%;
-  padding:1.5rem;
-  border-radius:8px;
-  margin:5vh auto;
-  position:relative;
+  background:#fff;max-width:780px;width:100%;
+  padding:1.5rem;border-radius:8px;margin:5vh auto;position:relative;
   box-shadow:0 12px 40px rgba(2,7,23,0.5);
 }
-.modal-close{
-  position:absolute;
-  right:1rem;
-  top:1rem;
-  background:transparent;
-  border:0;
-  font-size:1.8rem;
-}
+.modal-close{position:absolute;right:1rem;top:1rem;background:transparent;border:0;font-size:1.8rem;}
 
-/* =========================
-   Contact Form
-========================= */
-.contact-intro{ max-width:720px; margin:0 0 1.2rem; }
-.contact-form{ max-width:720px; }
-.form-row{
-  display:flex;
-  flex-direction:column;
-  gap:.35rem;
-  margin-bottom:1rem;
-}
-.form-row label{ font-weight:600; }
+/* =========================================================
+   Contact form
+   ========================================================= */
+.contact-intro{max-width:720px;margin:0 0 1.2rem;}
+.contact-form{max-width:720px;}
+.form-row{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem;}
+.form-row label{font-weight:600;}
 .contact-form input, .contact-form textarea{
   width:100%;
   padding:.75rem .85rem;
@@ -236,255 +151,178 @@ a:focus, button:focus{
   background:#fff;
   font-size:1rem;
 }
-.contact-form textarea{ resize:vertical; min-height:140px; }
-.contact-meta{ margin-top:1rem; color:#444; font-size:.95rem; }
-.hp-field{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+.contact-form textarea{resize:vertical;min-height:140px;}
+.contact-meta{margin-top:1rem;color:#444;font-size:.95rem;}
+.hp-field{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
 
 /* Form submit UX */
-.contact-form.is-submitting{
-  opacity:0.75;
-  transform: translateY(2px);
-  pointer-events:none;
-}
-#submitBtn.is-loading{
-  opacity:0.85;
-  cursor:progress;
-}
+.contact-form.is-submitting{opacity:0.75;transform:translateY(2px);pointer-events:none;}
+#submitBtn.is-loading{opacity:0.85;cursor:progress;}
 
-/* =========================
-   Page Fade Transitions
-========================= */
-body{ transition: opacity 700ms ease; }
-body.is-leaving{ opacity:0; }
-body.is-entering{ opacity:0; }
-body.is-entering.is-visible{ opacity:1; }
-
+/* =========================================================
+   Page fade (used by contact form redirect + thank you load)
+   ========================================================= */
+body{transition:opacity 700ms ease;}
+body.is-leaving{opacity:0;}
+body.is-entering{opacity:0;}
+body.is-entering.is-visible{opacity:1;}
 @media (prefers-reduced-motion: reduce){
-  *{ scroll-behavior:auto !important; transition:none !important; animation:none !important; }
-  body{ transition:none; }
+  *{scroll-behavior:auto!important;transition:none!important;animation:none!important;}
+  body{transition:none;}
 }
 
-/* ==========================================================
-   COMING SOON (Video background + Big updates layout)
-   Matches the “3:32 PM” screenshot layout 1:1
-========================================================== */
+/* =========================================================
+   Coming Soon Page (matches your current coming-soon.html)
+   ========================================================= */
 
-/* Fullscreen video hero */
-.coming-soon-page{ background:#000; color:#fff; }
-
+/* Fullscreen hero with background video */
 .coming-soon-hero{
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;   /* allow footer to sit lower */
-  padding: 40px 20px 40px; /* reduce bottom padding */
-  overflow: hidden;
+  position:relative;
+  min-height:100vh;
+  overflow:hidden;
 }
 
-/* Video */
-.coming-soon-hero video{
+/* Make the video cover the whole screen */
+.coming-soon-hero > video{
   position:absolute;
   inset:0;
   width:100%;
   height:100%;
-  object-fit: cover;
-  filter: brightness(0.78) contrast(1.08);
+  object-fit:cover;
+  /* If your background feels too dark, reduce these two values */
+  filter:brightness(0.82) contrast(1.08);
 }
 
-/* Dark overlay */
-.coming-soon-hero::after{
+/* Overlay sits above the video */
+.coming-soon-overlay{
+  position:relative;
+  z-index:2;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center; /* keeps the block in its original centered position */
+  text-align:center;
+  padding:40px 20px 110px; /* bottom padding reserves space so footer can sit lower */
+  color:#fff;
+}
+
+/* Dark overlay for readability */
+.coming-soon-overlay::before{
   content:"";
   position:absolute;
   inset:0;
-  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.55));
-  pointer-events:none;
+  z-index:-1;
+  background:linear-gradient(rgba(0,0,0,0.40), rgba(0,0,0,0.58));
 }
 
-/* Overlay content layer */
-.coming-soon-overlay{
-  position: relative;
-  z-index: 1;
-  min-height: 100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding: 40px 20px 24px;
-}
-
-/* Centered wrapper; footer pushed to bottom */
+/* Centered content wrapper */
 .coming-soon-wrap{
-  width:100%;
-  max-width: 980px;
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  min-height: calc(100vh - 110px);
-  justify-content:center;
-  padding-top: 0px;   /* pushes headline down */
+  max-width:980px;
+  margin:0 auto;
 }
 
-/* Pill */
+/* “Work in progress” pill */
 .coming-pill{
   display:inline-flex;
   align-items:center;
   gap:10px;
   padding:10px 16px;
   border-radius:999px;
-  background: rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.12);
   border:1px solid rgba(255,255,255,0.18);
-  color: rgba(255,255,255,0.92);
-  font-weight:600;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  margin: 0 auto 22px;
+  color:rgba(255,255,255,0.92);
+  font-weight:700;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  margin:0 auto 22px auto;
 }
 .pill-dot{
-  width:10px;
-  height:10px;
-  border-radius:999px;
+  width:10px;height:10px;border-radius:999px;
   background:#0A66C2;
-  box-shadow: 0 0 0 6px rgba(10,102,194,0.18);
+  box-shadow:0 0 0 6px rgba(10,102,194,0.18);
 }
 
-/* Title/subtitle */
 .coming-title{
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  line-height: 1.05;
-  margin: 0 0 18px 0;
-  letter-spacing: -0.02em;
-  color:#fff;
+  font-size:clamp(2.5rem, 6vw, 5rem);
+  line-height:1.05;
+  margin:0 0 18px 0;
+  letter-spacing:-0.02em;
 }
 .coming-subtitle{
-  font-size: clamp(1.05rem, 2.2vw, 1.6rem);
-  line-height: 1.4;
-  margin: 0 auto 32px auto;
-  max-width: 980px;
-  color: rgba(255,255,255,0.92);
+  font-size:clamp(1.05rem, 2.2vw, 1.6rem);
+  line-height:1.4;
+  margin:0 auto 32px auto;
+  max-width:980px;
+  color:rgba(255,255,255,0.92);
 }
 
-/* CTA Row */
+/* CTA row */
 .coming-cta-row{
   display:flex;
   justify-content:center;
-  align-items:center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 0;
+  gap:20px;
+  margin:0;
+  flex-wrap:wrap;
 }
 
-/* Unified CTA (fixes the Email button shape) */
+/* Shared “coming” button sizing (fixes Email button shape mismatch) */
 .coming-cta{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  min-height: 64px;
-  padding: 14px 26px;
-  border-radius: 14px;
+  gap:14px;
+  padding:18px 28px;
+  min-height:72px;
+  border-radius:18px;
+  box-shadow:0 10px 26px rgba(0,0,0,0.22);
   background:#fff;
-  color:#111;           /* Email button text = black */
-  font-weight: 800;
-  box-shadow: 0 10px 26px rgba(0,0,0,0.30);
-  transition: transform .15s ease, box-shadow .15s ease;
+  font-weight:800;
   text-decoration:none;
-  white-space: nowrap;
+  white-space:nowrap;
 }
 .coming-cta:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.34);
+  transform:translateY(-2px);
+  box-shadow:0 14px 30px rgba(0,0,0,0.28);
 }
 
-/* LinkedIn CTA text color */
-.coming-cta-linkedin{
-  color:#0A66C2;         /* “Connect on” = LinkedIn blue */
-  gap: 10px;             /* controls spacing between text + wordmark */
+/* Email button text color */
+.coming-cta-row .coming-cta:not(.coming-cta-linkedin){
+  color:#111;
 }
 
-/* Wordmark image inside CTA */
+/* LinkedIn wordmark CTA (your current HTML uses .li-text + .li-wordmark) */
+.coming-cta-linkedin{gap:14px;}
+.coming-cta-linkedin .li-text{
+  color:#0A66C2; /* LinkedIn blue for “Connect on” */
+  font-weight:900;
+}
 .coming-cta-linkedin .li-wordmark{
   display:block;
-  height: 26px;
+  height:26px;   /* adjust if needed */
   width:auto;
-  margin:0 !important;
-}
-
-/* Tooltip: BELOW button + delayed hover */
-.li-tooltip-wrap{
-  position: relative;
-  display: inline-flex;
-}
-
-.li-tooltip-wrap .li-tooltip{
-  position:absolute;
-  left:50%;
-  top: calc(100% + 12px);        /* BELOW button */
-  transform: translateX(-50%) translateY(-6px) scale(.98);
-  background: rgba(17,17,17,0.92);
-  color:#fff;
-  font-size: .9rem;
-  padding: 10px 12px;
-  border-radius: 999px;
-  white-space: nowrap;
-  opacity:0;
-  pointer-events:none;
-  box-shadow: 0 14px 30px rgba(0,0,0,0.35);
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  z-index: 9999;
-
-  transition: opacity 180ms ease, transform 180ms ease;
-  transition-delay: 0ms;
-}
-
-.li-tooltip-wrap .li-tooltip::after{
-  content:"";
-  position:absolute;
-  bottom:100%;
-  left:50%;
-  transform: translateX(-50%);
-  border: 8px solid transparent;
-  border-bottom-color: rgba(17,17,17,0.92); /* arrow points UP at button */
-}
-
-.li-tooltip-wrap .li-verified-dot{
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background:#0A66C2;
-  box-shadow: 0 0 0 6px rgba(10,102,194,0.18);
-}
-
-/* Delayed reveal */
-.li-tooltip-wrap:hover .li-tooltip,
-.li-tooltip-wrap:focus-within .li-tooltip{
-  opacity:1;
-  transform: translateX(-50%) translateY(0) scale(1);
-  transition-delay: 450ms; /* delay the tooltip more */
-}
-
-/* Don’t show tooltip on touch devices */
-@media (hover: none){
-  .li-tooltip-wrap .li-tooltip{ display:none; }
+  margin:0;
 }
 
 /* Mobile stacking */
-@media (max-width: 600px){
+@media (max-width:600px){
   .coming-cta-row{
     flex-direction:column;
+    align-items:stretch;
     gap:14px;
+    width:min(520px, 92vw);
+    margin:0 auto;
   }
   .coming-cta{
     width:100%;
-    max-width: 520px;
   }
 }
 
-/* Footer pinned to bottom with padding */
+/* Footer pinned lower */
 .coming-footer{
-  margin-top: auto;
-  padding-top: 24px;     /* small breathing room above */
-  padding-bottom: 24px;  /* not on the edge, but low */
-  color: rgba(255,255,255,0.75);
-  font-weight: 700;
+  margin-top:auto; /* pushes footer down within overlay */
+  padding-top:26px;
+  padding-bottom:22px; /* breathing room from bottom edge */
+  color:rgba(255,255,255,0.78);
+  font-weight:700;
 }
