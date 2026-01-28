@@ -285,7 +285,7 @@ body.coming-soon-page{
 
 /* LinkedIn CTA: text blue + wordmark image */
 .coming-cta-linkedin{
-  gap: 14px;        /* ONLY spacing between text and logo */
+  gap: 8px;        /* ONLY spacing between text and logo */
   white-space: nowrap;
 }
 
