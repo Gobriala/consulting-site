@@ -302,6 +302,45 @@ body.coming-soon-page{
   margin: 0;
 }
 
+/* Background layers */
+.coming-soon-bg{
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+  background: #0b0f14; /* prevents white flash */
+}
+
+.coming-soon-bg video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Dark overlay for readability (keep if you want) */
+.coming-soon-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.55));
+  pointer-events:none;
+}
+
+/* Fallback image layer — hidden by default */
+.coming-soon-fallback{
+  position: absolute;
+  inset: 0;
+  background: url("images/coming-soon.jpg") center/cover no-repeat;
+  display: none;
+}
+
+/* Only allow fallback to appear on mobile */
+@media (max-width: 600px){
+  body.cs-video-failed .coming-soon-fallback{ display:block; }
+  body.cs-video-failed .coming-soon-bg video{ display:none; }
+}
+
 /* Tooltip BELOW the LinkedIn button (hidden by default) */
 .li-tooltip-wrap{
   position: relative;

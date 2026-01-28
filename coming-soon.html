@@ -10,9 +10,13 @@
 <body class="coming-soon-page">
 
   <main class="coming-soon-hero">
-  <video autoplay muted loop playsinline poster="images/coming-soon.jpg">
-    <source src="video/coming-soon-1.mp4" type="video/mp4">
-  </video>
+  <div class="coming-soon-bg">
+    <video id="csVideo" autoplay muted loop playsinline preload="auto">
+      <source src="video/coming-soon-1.mp4" type="video/mp4">
+    </video>
+    
+     <div class="coming-soon-fallback" aria-hidden="true"></div>
+  </div>
 
   <div class="coming-soon-content">
 
@@ -59,17 +63,32 @@
 </main>
 
   <script>
-    // Optional: add a class once video can play (only if you use it in CSS)
-    document.addEventListener("DOMContentLoaded", () => {
-      const hero = document.querySelector(".coming-soon-hero");
-      const vid = hero?.querySelector("video");
-      if (!hero || !vid) return;
+  document.addEventListener("DOMContentLoaded", async () => {
+    const vid = document.getElementById("csVideo");
+    if (!vid) return;
 
-      const ready = () => hero.classList.add("video-ready");
-      if (vid.readyState >= 2) ready();
-      else vid.addEventListener("canplay", ready, { once: true });
-    });
-  </script>
+    // Only care about fallback on small screens
+    const isMobile = window.matchMedia("(max-width: 600px)").matches;
+    if (!isMobile) return;
+
+    const fail = () => document.body.classList.add("cs-video-failed");
+
+    // If the file can't load / decode
+    vid.addEventListener("error", fail, { once: true });
+    vid.addEventListener("stalled", fail, { once: true });
+    vid.addEventListener("abort", fail, { once: true });
+
+    // Try to autoplay — if blocked or fails, show fallback
+    try {
+      const p = vid.play();
+      if (p && typeof p.catch === "function") {
+        p.catch(fail);
+      }
+    } catch (e) {
+      fail();
+    }
+  });
+</script>
 
 </body>
 </html>
