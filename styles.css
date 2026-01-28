@@ -454,5 +454,5 @@ body.coming-soon-page{
 /* Move CTA buttons lower on mobile to reveal more skyline */
 @media (max-width: 600px){
   .coming-cta-row{
-    margin-top: 140px; /* increase/decrease as needed */
+    margin-top: 155px; /* increase/decrease as needed */
   }
