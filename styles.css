@@ -460,6 +460,6 @@ body.coming-soon-page{
   /* Keep buttons higher on mobile LANDSCAPE */
 @media (max-width: 600px) and (orientation: landscape){
   .coming-cta-row{
-    margin-top: 24px; /* bring buttons back up */
+    margin-top: 12px; /* bring buttons back up */
   }
 }
