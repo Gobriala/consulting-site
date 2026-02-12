@@ -430,7 +430,18 @@ a:focus, button:focus, input:focus, textarea:focus {
 @media (prefers-reduced-motion: reduce){
   .li-tooltip{ transition: none; transform: translateX(-50%); }
 }
-
+.contact-linkedin-wrap {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+.contact-linkedin-wrap p{
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+.contact-linkedin-wrap .cta-linkedin-main{
+  margin-top: .25rem;
+}
 /* Page fade before redirect */
 body {  transition: opacity 700ms ease;}
 body.is-leaving {  opacity: 0;}
