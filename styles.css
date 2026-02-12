@@ -91,6 +91,11 @@ body{
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
 }
+/* Prevent double motion inside portfolio cards */
+.portfolio-item .cta:hover{
+  transform: none;
+  box-shadow: var(--shadow-sm);
+}
 .open-case{
   margin-top: 1rem;
   padding: .7rem 1rem;
