@@ -130,10 +130,12 @@ body{
   padding:1.75rem;
   border-radius:16px;
   flex:1;
-  min-width:240px;
+  min-width:220px;
   border:1px solid rgba(0,0,0,0.05);
   box-shadow: 0 8px 28px rgba(12,18,30,0.05);
   transition: transform .2s ease, box-shadow .2s ease;
+  display: flex;
+  flex-direction: column;
 }
 .card:hover{
   transform: translateY(-4px);
@@ -144,8 +146,9 @@ body{
   display: flex;
   flex-direction: column;
 }
+/* pushes button to bottom of card */
 .card .cta{
-  margin-top: auto; /* pushes button to bottom of card */
+  margin-top: auto; 
 }
 .cards{
   align-items: stretch;
