@@ -147,9 +147,14 @@ body{
   flex-direction: column;
 }
 /* pushes button to bottom of card */
-.card .cta{
-  margin-top: auto; 
+.portfolio-item{
+  display: flex;
+  flex-direction: column;
 }
+.portfolio-item .cta{
+  margin-top: auto;
+}
+
 .cards{
   align-items: stretch;
 }
