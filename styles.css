@@ -170,14 +170,36 @@ body{
   display:flex;
   flex-direction:column;
 }
-/* Selected Work card hover = card lifts + shadow */
-.portfolio-item{
-  transition: transform 220ms ease, box-shadow 220ms ease;
+/* ===== Contact LinkedIn Button ===== */
+.contact-social{
+  margin-top: 28px;
+  text-align: center;
 }
 
-.portfolio-item:hover{
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+.cta-linkedin-main{
+  background: #ffffff;
+  color: #0A66C2;
+  border: 1px solid rgba(10,102,194,0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 160ms ease;
+}
+
+.cta-linkedin-main:hover{
+  background: #f4f8fc;
+  border-color: #0A66C2;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.cta-linkedin-main .li-wordmark{
+  height: 20px;
+  width: auto;
+  display: block;
 }
 /* Selected Work — keep buttons aligned at the bottom + keep them pill-sized */
 .portfolio-item .open-case{
@@ -198,7 +220,15 @@ body{
   transform: scale(1.02);
 }
 .site-footer{padding:2rem 0;text-align:center;font-size:.9rem;color:#666;background:transparent;border-top:1px solid rgba(0,0,0,0.04);}
+/* Selected Work card hover = card lifts + shadow */
+.portfolio-item{
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
 
+.portfolio-item:hover{
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
 /* Accessibility */
 a:focus, button:focus, input:focus, textarea:focus {
   outline: 3px solid var(--focus);
