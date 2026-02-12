@@ -124,19 +124,17 @@
         <input id="email" name="email" type="email" autocomplete="email" required />
       </div>
 
-      <div class="form-row">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
-      </div>
-
-      <!-- Optional: helpful metadata -->  
-      <!-- Spam reduction: honeypot (bots fill this; humans won't) -->
       <div class="hp-field" aria-hidden="true">
         <label for="company">Company</label>
         <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
       </div>
 
-<div style="display:none;">
+      <div class="form-row">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+      </div>
+
+  <div style="display:none;">
   <label>Leave this field empty</label>
   <input type="text" name="website">
 </div>
