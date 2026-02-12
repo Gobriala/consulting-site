@@ -79,6 +79,14 @@ body{
   box-shadow: var(--shadow-sm);
   transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
 }
+.cta.primary{
+  background: var(--accent);
+  color:#fff;
+  border-color: transparent;
+}
+.cta.primary:hover{
+  background: var(--accent-dark);
+}
 .cta:hover{
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
