@@ -191,8 +191,9 @@ a:focus, button:focus, input:focus, textarea:focus {
   border-radius: 14px;
   background: #fff;
   font-size: 1rem;
-  transition: border 160ms ease, box-shadow 160ms ease;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
 }
+
 .contact-form input:focus,
 .contact-form textarea:focus{
   border-color: #0A66C2;
