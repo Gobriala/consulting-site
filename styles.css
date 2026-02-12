@@ -146,25 +146,23 @@ body{
   display: flex;
   flex-direction: column;
 }
-/* pushes button to bottom of card */
-.portfolio-item{
-  display: flex;
-  flex-direction: column;
-}
-.portfolio-item .cta{
-  margin-top: auto;
-}
-
 .cards{
   align-items: stretch;
 }
-.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;}
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;
+}
 .portfolio-item{
-  background: var(--surface);
-  padding: 1.1rem;
-  border-radius: var(--radius);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-sm);
+  background:#fff;
+  padding:1.6rem;
+  border-radius:14px;
+  box-shadow:0 10px 28px rgba(12,18,30,0.06);
+
+  display:flex;
+  flex-direction:column;
+}
+.portfolio-item .cta{
+  margin-top:auto;
+  align-self:flex-start;
 }
 .portfolio-item img{
   width:100%;
