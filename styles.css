@@ -337,7 +337,12 @@ a:focus, button:focus, input:focus, textarea:focus {
   text-decoration:none;
   transition: background-color 160ms ease, transform 120ms ease, box-shadow 120ms ease;
 }
-
+@media (max-width: 600px){
+  .cta.cta-linkedin-main{
+    width: 100%;
+    justify-content: center;
+  }
+}
 .cta.cta-linkedin:hover{
   background:#004182; /* LinkedIn hover color */
   transform: translateY(-1px);
@@ -430,10 +435,12 @@ a:focus, button:focus, input:focus, textarea:focus {
 @media (prefers-reduced-motion: reduce){
   .li-tooltip{ transition: none; transform: translateX(-50%); }
 }
-.contact-linkedin-wrap {
+.contact-social{
   margin-top: 2rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  justify-content: center;
 }
 .contact-linkedin-wrap p{
   margin-bottom: 1rem;
