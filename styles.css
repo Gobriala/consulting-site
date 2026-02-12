@@ -160,9 +160,13 @@ body{
   display:flex;
   flex-direction:column;
 }
-.portfolio-item .cta{
-  margin-top:auto;
-  align-self:flex-start;
+/* Selected Work — keep buttons aligned at the bottom + keep them pill-sized */
+.portfolio-item .open-case{
+  margin-top: auto;        /* pushes button to bottom of card */
+  align-self: flex-start;  /* prevents full-width stretching */
+  width: auto;             /* overrides any width:100% rules */
+  max-width: 100%;
+  display: inline-flex;    /* keeps pill sizing consistent */
 }
 .portfolio-item img{
   width:100%;
