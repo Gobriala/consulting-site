@@ -219,7 +219,13 @@ body{
 .portfolio-item:hover img{
   transform: scale(1.02);
 }
-.site-footer{padding:2rem 0;text-align:center;font-size:.9rem;color:#666;background:transparent;}
+.site-footer{
+  padding: 1rem 0 2rem;
+  text-align:center;
+  font-size:.9rem;
+  color:#666;
+  background:transparent;
+}
 
 /* Selected Work card hover = card lifts + shadow */
 .portfolio-item{
