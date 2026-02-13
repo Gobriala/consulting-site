@@ -131,7 +131,7 @@ body{
 .section{padding:4rem 0;}
 /* Tighten the bottom of the Contact section so footer isn't so far away */
 #contact.section{
-  padding-bottom: 2.25rem; /* try 1.5rem–2.25rem */
+  padding-bottom: 1.5rem; /* try 1.5rem–2.25rem */
 }
 .section.alt{
   background:#fff;
