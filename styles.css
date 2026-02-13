@@ -438,7 +438,6 @@ a:focus, button:focus, input:focus, textarea:focus {
 .contact-social{
   margin-top: 1.25rem;
   padding-top: 1.25rem;
-  border-top: 1px solid rgba(0,0,0,0.06);
   display: flex;
   justify-content: center;
 }
