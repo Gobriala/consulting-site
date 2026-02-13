@@ -129,6 +129,10 @@ body{
 .nav ul{display:flex;gap:1rem;list-style:none;padding:.6rem 2rem;margin:0;align-items:center;width:100%;}
 .nav a{color:#111;text-decoration:none;padding:.4rem .6rem;border-radius:4px;}
 .section{padding:4rem 0;}
+/* Tighten the bottom of the Contact section so footer isn't so far away */
+#contact.section{
+  padding-bottom: 1.75rem; /* try 1.5rem–2.25rem */
+}
 .section.alt{
   background:#fff;
   border-top: 1px solid rgba(0,0,0,0.04);
