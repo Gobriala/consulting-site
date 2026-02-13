@@ -220,7 +220,7 @@ body{
   transform: scale(1.02);
 }
 .site-footer{
-  padding: 1rem 0 2rem;
+  padding: .75rem 0 2rem;
   text-align:center;
   font-size:.9rem;
   color:#666;
