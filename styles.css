@@ -291,7 +291,12 @@ a:focus, button:focus, input:focus, textarea:focus {
   resize: vertical;
   min-height: 150px;
 }
-
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
 /* Form submit UX */
 .contact-form.is-submitting {
   opacity: 0.75;
