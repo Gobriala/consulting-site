@@ -340,21 +340,6 @@ a:focus, button:focus, input:focus, textarea:focus {
   margin: 6px 0 2px;
 }
 
-/* Make actions feel tighter on mobile + full-width */
-@media (max-width: 600px){
-  .contact-actions{
-    align-items: stretch;
-  }
-
-  .contact-actions .cta,
-  .contact-actions button{
-    width: 100%;
-  }
-
-  .contact-actions .cta{
-    justify-content: center;
-  }
-}
 /* ===== LinkedIn Button ===== */
 .cta.cta-linkedin{
   background:#0A66C2;
